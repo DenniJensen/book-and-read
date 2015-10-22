@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:twitter, :github, :facebook]
+  devise :omniauthable, :omniauth_providers => [:twitter, :github, :facebook,
+                                                :google_oauth2]
 end
