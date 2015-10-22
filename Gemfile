@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 gem 'omniauth-twitter'
+gem 'omniauth-github'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
