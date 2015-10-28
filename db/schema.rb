@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022124231) do
+ActiveRecord::Schema.define(version: 20151022223724) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors_books", id: false, force: :cascade do |t|
+    t.integer "book_id",   null: false
+    t.integer "author_id", null: false
+  end
+
+  add_index "authors_books", ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.date     "published_at"
+    t.string   "description"
+    t.string   "language"
+    t.string   "image_link"
+    t.integer  "pages"
+    t.string   "isbn"
+    t.string   "isbn_13"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "books_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+  end
+
+  add_index "books_users", ["user_id", "book_id"], name: "index_books_users_on_user_id_and_book_id"
+
+  create_table "rentals", force: :cascade do |t|
+    t.date     "start"
+    t.date     "end"
+    t.integer  "owner_id"
+    t.integer  "borrower_id"
+    t.integer  "book_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

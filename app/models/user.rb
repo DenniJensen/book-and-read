@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:twitter, :github, :facebook,
                                                 :google_oauth2]
+
+  has_and_belongs_to_many :books
 end
