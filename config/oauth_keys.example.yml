@@ -1,0 +1,13 @@
+github:
+  public: 'PUBLIC TOKEN'
+  secret: 'PRIVATE TOKEN'
+twitter:
+  public: 'PUBLIC TOKEN'
+  secret: 'PRIVATE TOKEN'
+facebook:
+  public: 'PUBLIC TOKEN'
+  secret: 'PRIVATE TOKEN'
+github:
+  public: 'PUBLIC TOKEN'
+  secret: 'PRIVATE TOKEN'
+

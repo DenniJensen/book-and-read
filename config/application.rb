@@ -4,6 +4,8 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 
+OAUTH_KEYS = YAML.load(File.read(File.expand_path('../oauth_keys.yml', __FILE__)))
+
 module BookAndRead
   class Application < Rails::Application
     config.sass.preferred_syntax = :sass
