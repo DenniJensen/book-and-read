@@ -1,3 +1,5 @@
+[![Build Status](https://magnum.travis-ci.com/DenniJensen/book-and-read.svg?token=LXPadLLZHBGUqXF9dTdc&branch=travis-ci)](https://magnum.travis-ci.com/DenniJensen/book-and-read)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
