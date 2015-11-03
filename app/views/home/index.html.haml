@@ -1,2 +1,4 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+=form_tag(books_path, method: 'GET', class: 'input-group') do
+  %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
+  %span.input-group-btn
+    =submit_tag('Suchen', type: 'submit' , value: 'Search', class: 'btn btn-default')
