@@ -1,4 +1,11 @@
-=form_tag(books_path, method: 'GET', class: 'input-group') do
-  %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
-  %span.input-group-btn
-    =submit_tag('Suchen', type: 'submit' , value: 'Search', class: 'btn btn-default')
+.searchbar-header
+  %h1 Find your Book
+  =form_tag(books_path, method: 'GET', class: 'input-group') do
+    %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
+    %span.input-group-btn
+      =submit_tag('Suchen', type: 'submit' , value: 'Search', class: 'btn btn-default')
+
+.intro-group
+  .intro-box.first
+  .intro-box
+  .intro-box.last
