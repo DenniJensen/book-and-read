@@ -1,15 +1,22 @@
-.searchbar-header
-  %h1 Find your Book
-  =form_tag(book_search_path, method: 'POST', class: 'input-group') do
-    %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
-    %span.input-group-btn
-      =submit_tag('Suchen',
-        type: 'submit' ,
-        value: 'Search',
-        class: 'btn btn-default')
-  =link_to 'Alle Bücher im System', books_path
+.row
+  .col-md-12
+    %h1 Find your Book
+.row
+  .col-md-12
+    .searchbar-header
+      =form_tag(book_search_path, method: 'POST', class: 'input-group') do
+        %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
+        %span.input-group-btn
+          =submit_tag('Suchen',
+            type: 'submit' ,
+            value: 'Search',
+            class: 'btn btn-default')
+      =link_to 'Alle Bücher im System', books_path
 
-.intro-group
-  .intro-box.first
-  .intro-box
-  .intro-box.last
+.row
+  .col-md-4
+    .intro-box.first
+  .col-md-4
+    .intro-box
+  .col-md-4
+    .intro-box.last
