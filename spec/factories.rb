@@ -10,4 +10,11 @@ FactoryGirl.define do
     isbn '1234567890'
     isbn_13 '123456789012'
   end
+
+  factory :user do
+    email 'test@test.com'
+    password 'secredfdaff'
+    first_name 'John'
+    last_name 'Doe'
+  end
 end

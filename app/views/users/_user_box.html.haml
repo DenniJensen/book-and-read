@@ -1,0 +1,11 @@
+.well.user-box
+  .row
+    .col-md-8.user-information
+      .col-md-4
+        = image_tag 'user_dummy.jpg', height: 80, widht: 80
+      .col-md-8
+        = user.email
+    .col-md-4.buttons
+      = link_to 'BOO' do
+        %button.btn.btn-primary
+          Ausleihen
