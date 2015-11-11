@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Book, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Book do
+  let(:book) { create :book }
+
+  it 'is a test' do
+    skip
+    book
+  end
 end
