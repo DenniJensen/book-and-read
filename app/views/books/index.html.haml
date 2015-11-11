@@ -10,10 +10,7 @@
 
 - @books.each do |book|
   .row
-    .col-md-9
+    .col-md-12
       = render 'book_box', book: book
-    .col-md-3
-      = link_to root_path do
-        %button{ class: 'btn btn-primary' }Owner (NOT WORKING)
 
 
