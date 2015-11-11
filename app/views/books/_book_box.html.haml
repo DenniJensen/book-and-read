@@ -1,0 +1,14 @@
+.well.well-sm
+  =link_to book_path(book) do
+    .row.book-box
+      .col-xs-6.col-md-2
+        .thumbnail
+          =image_tag book.image_link, class: 'book-image'
+      .col-md-8
+        .row
+          %h3.title
+            =book.title
+        .row
+          %span
+            Page Count:
+          =book.pages

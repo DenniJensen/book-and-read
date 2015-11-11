@@ -8,19 +8,12 @@
     You searched for:
     =@searched_for
 
-.list-group
-  - @books.each do |book|
-    .well.well-sm
-      =link_to book_path(book) do
-        .row
-          .col-md-2
-            =image_tag book.image_link
-          .col-md-8
-            %h3.title
-              =book.title
-            .page-count
-              %span
-                Page Count:
-              =book.pages
+- @books.each do |book|
+  .row
+    .col-md-9
+      = render 'book_box', book: book
+    .col-md-3
+      = link_to root_path do
+        %button{ class: 'btn btn-primary' }Owner (NOT WORKING)
 
 
