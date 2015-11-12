@@ -20,6 +20,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'
