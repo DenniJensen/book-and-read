@@ -1,12 +1,10 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:twitter, :github, :facebook,
                                                 :google_oauth2]
-
   has_and_belongs_to_many :books
+  validates :first_name, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -15,6 +13,10 @@ class User < ActiveRecord::Base
       user.email = auth.info.email || email_out_of(auth)
       user.password = Devise.friendly_token[0,20]
     end
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 
   private

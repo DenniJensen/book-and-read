@@ -5,13 +5,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
-    # TODO fix: all -> real owners
-    @users = User.all
   end
 
   def search
     @searched_for = params[:name]
     @books = Book.first(2)
     render 'index'
+  end
+
+  def owners
+    books = Book.find_by(params[:books_id])
+    @users = books.owners if books
   end
 end
