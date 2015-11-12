@@ -37,6 +37,6 @@
 
 .margin-top-10
   - @book.owners.first(2).each do |owner|
-    = render 'users/user_box', user: owner
+    = render 'users/box', user: owner
 
 =link_to "To all books", books_path
