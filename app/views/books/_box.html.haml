@@ -1,8 +1,8 @@
 =link_to book_path(book) do
   .row.book-box.well.well-sm
-    .col-xs-6.col-md-2
+    .col-md-2
       .thumbnail
-        =image_tag book.image_link, class: 'book-image'
+        =image_tag book.image_link
     .col-md-7
       .row
         %h3.title
@@ -13,4 +13,4 @@
         =book.pages
     .col-md-2
       = link_to book_users_path(book) do
-        %button{ class: 'btn btn-primary' }Owner (NOT WORKING)
+        %button{ class: 'btn btn-primary' }Show owners

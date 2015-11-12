@@ -1,17 +1,43 @@
 
+.row.margin-top-10
+  .col-md-4#book-img
+    =image_tag @book.image_link, class:"thumbnail"
+  .col-md-8
+    .panel.panel-primary
+      .panel-heading
+        %h4
+          = @book.title
+      .panel-body
+        %h4
+          .row
+            .col-md-3.padding-10
+              %strong
+                Authors:
+            .col-md-9.padding-10
+              test//= @book.authors
+            .col-md-3.padding-10
+              %strong
+                Pages:
+            .col-md-9.padding-10
+              = @book.pages
+            .col-md-3.padding-10
+              %strong
+                Description:
+            .col-md-9.padding-10
+              = @book.description
+
+%hr
+
 .row
-  .col-md-3
-    =image_tag @book.image_link, class: 'thumbnail'
-  .col-md-9
-    .row
-      %h3.title
-        Title:
-        = @book.title
-    .row
-      %h4.title
-        Page:
-        = @book.pages
-    .row
-      %h4 Beschreibung:
-      = @book.description
+  .col-xs-10
+    %h4
+      People owning this book:
+  .col-xs-2
+    .btn.btn-primary.full-width
+      Show all
+
+.margin-top-10
+  - @users.each do |user|
+    = render 'users/user_box', user: user
+
 =link_to "To all books", books_path

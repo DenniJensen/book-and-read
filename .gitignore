@@ -16,3 +16,8 @@
 !/log/.keep
 /tmp
 /config/oauth_keys.yml
+
+# Ignore Jetbrains config
+.idea
+.raketasks
+.generators

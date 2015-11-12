@@ -5,6 +5,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
+    # TODO fix: all -> real owners
+    @users = User.all
   end
 
   def search

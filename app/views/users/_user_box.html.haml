@@ -1,11 +1,17 @@
+// TODO real data (just a dummy)
 .well.user-box
-  .row
-    .col-md-8.user-information
-      .col-md-4
+  .row.vertical-center
+    .col-md-10.user-information
+      .col-md-3
         = image_tag 'user_dummy.jpg', height: 80, widht: 80
-      .col-md-8
-        = user.email
-    .col-md-4.buttons
+      .col-md-9
+        %p
+          John Doe
+        %p
+          Long Lane 4
+        %p
+          = user.email
+    .col-md-2.buttons
       = link_to 'BOO' do
-        %button.btn.btn-primary
-          Ausleihen
+        %button.btn.btn-primary#btn
+          Rent now
