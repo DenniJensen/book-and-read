@@ -1,14 +1,18 @@
 .well.user-box
   .row.vertical-center
-    .col-md-10.user-information
+    .col-md-9.user-information
       .col-md-3
         = image_tag 'user_dummy.jpg', height: 80, widht: 80
       .col-md-9
         %p
-          = user.name
+          = link_to user.name, user_path(user)
         %p
           = user.email
-    .col-md-2.buttons
-      = link_to 'BOO' do
-        %button.btn.btn-primary#btn
-          Rent now
+    .col-md-3.buttons
+      = link_to user_books_path(user) do
+        %button.btn.btn-primary.btn-block
+          Show Books
+      - if @book
+        = link_to '/' do
+          %button.btn.btn-primary.btn-block
+            Rent now

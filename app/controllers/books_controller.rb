@@ -14,8 +14,8 @@ class BooksController < ApplicationController
   end
 
   def owners
-    books = Book.find_by(params[:books_id])
-    @users = books.owners if books
+    @book = Book.find_by(params[:books_id])
+    @users = @book.owners if @book
     render 'users/index'
   end
 end
