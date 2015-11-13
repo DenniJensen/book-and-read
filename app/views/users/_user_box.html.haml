@@ -1,0 +1,17 @@
+// TODO real data (just a dummy)
+.well.user-box
+  .row.vertical-center
+    .col-md-10.col-sm-9.col-xs-8
+      .col-xs-4.col-sm-3.col-md-2.img-responsive.max-width-80
+        = image_tag 'user_dummy.jpg'
+      .col-xs-8.col-sm-9.col-md-10
+        %p
+          John Doe
+        %p
+          Long Lane 4
+        %p
+          = user.email
+    .col-md-2.col-sm-3.col-xs-4
+      = link_to 'BOO' do
+        %button.btn.btn-primary#btn
+          Rent now

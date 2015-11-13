@@ -1,13 +1,13 @@
 .row.margin-top-10
-  .col-md-4#book-img
+  .col-sm-4.col-xs-12#book-img
     =image_tag @book.image_link, class:"thumbnail"
-  .col-md-8
+  .col-sm-8.col-xs-12
     .panel.panel-primary
       .panel-heading
         %h4
           = @book.title
       .panel-body
-        %h4
+        %h5
           .row
             .col-md-3.padding-10
               %strong
@@ -27,10 +27,10 @@
 
 %hr
 .row
-  .col-xs-10
+  .col-md-10.col-sm-9.col-xs-8
     %h4
       People owning this book:
-  .col-xs-2
+  .col-md-2.col-sm-3.col-xs-4
     = link_to book_owners_path(@book) do
       .btn.btn-primary.full-width
         Show all
