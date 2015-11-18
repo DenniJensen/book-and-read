@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   post '/books', to: 'books#search', as: 'book_search'
 
   resources :books, only: [:index, :show] do
-    get 'users/:id', to: 'books#users', as: 'owner'
-    get 'users', to: 'books#owners', as: 'owners'
+    get 'owners/:id', to: 'books#show_owner', as: 'owner'
+    get 'owners', to: 'books#owners', as: 'owners'
   end
 
   resources :user do
     resources :books, only: [:index, :show]
     get 'books', to: 'user#books', as: 'user_books'
   end
-
 end
