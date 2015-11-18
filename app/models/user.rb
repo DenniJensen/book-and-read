@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:twitter, :github, :facebook,
-                                                :google_oauth2]
+  devise :omniauthable,
+         :omniauth_providers => [:twitter, :github,
+                                 :facebook, :google_oauth2]
   has_and_belongs_to_many :books
   validates :first_name, presence: true
 
