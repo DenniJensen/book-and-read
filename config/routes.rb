@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  root to: "home#index"
+
   get 'users/:id', to: 'users#show', as: 'user'
   get 'users', to: 'users#index'
 
@@ -14,6 +17,4 @@ Rails.application.routes.draw do
     get 'books', to: 'user#books', as: 'user_books'
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  root to: "home#index"
 end
