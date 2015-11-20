@@ -43,4 +43,29 @@ describe BooksController do
       expect(assigns(:books)).to eq user_with_books.books
     end
   end
+
+  context 'Add/Remove Books' do
+    describe 'POST user/:user_id/books/:id' do
+      it 'adds a book to the user' do
+        book = create :book
+        user = create :user
+        expect(user.books).to eq []
+        expect(book.owners).to eq []
+        post :add_book_to_user, user_id: user.id, id: book.id
+        expect(user.reload.books).to eq [book]
+        expect(book.reload.owners).to eq [user]
+      end
+    end
+
+    describe 'PUT user/:user_id/books/:id' do
+      it 'removes the book from the user' do
+        book_to_remove = user_with_books.books.first
+        expect(user_with_books.books.include? book_to_remove).to be_truthy
+        put :remove_book_from_user, user_id: user_with_books.id,
+          id: book_to_remove.id
+        included = user_with_books.reload.books.include? book_to_remove
+        expect(included).to be_falsy
+      end
+    end
+  end
 end

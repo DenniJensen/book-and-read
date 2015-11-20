@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   resources :user do
     resources :books, only: [:index, :show]
+    post 'books/:id', to: 'books#add_book_to_user', as: 'add_book'
+    put 'books/:id', to: 'books#remove_book_from_user', as: 'remove_book'
   end
 end
