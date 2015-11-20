@@ -14,3 +14,8 @@
     .col-md-2.col-xs-2
       = link_to book_owners_path(book) do
         %button{ class: 'btn btn-primary' }Show owners
+      - if current_user
+        = link_to user_add_book_path(current_user, book),
+          method: :post,
+          remote: true do
+          %button{ class: 'btn btn-success' } Add to my Books

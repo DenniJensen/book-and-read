@@ -4,7 +4,7 @@
 .row
   .col-md-12
     .searchbar-header
-      =form_tag(book_search_path, method: 'POST', class: 'input-group') do
+      =form_tag(all_books_path, method: 'GET', class: 'input-group') do
         %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
         %span.input-group-btn
           =submit_tag('Suchen',
