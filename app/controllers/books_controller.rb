@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @user = User.find params[:user_id]
+    @books = @user.books
   end
 
   def show
@@ -17,5 +18,10 @@ class BooksController < ApplicationController
     @book = Book.find_by(params[:books_id])
     @users = @book.owners if @book
     render 'users/index'
+  end
+
+  def all_books
+    @books = Book.all
+    render 'books/index'
   end
 end

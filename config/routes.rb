@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
   get 'users', to: 'users#index'
 
-  post '/books', to: 'books#search', as: 'book_search'
+  get '/books', to: 'books#all_books', as: 'all_books'
 
   resources :books, only: [:index, :show] do
     get 'owners/:id', to: 'books#show_owner', as: 'owner'
@@ -14,6 +14,5 @@ Rails.application.routes.draw do
 
   resources :user do
     resources :books, only: [:index, :show]
-    get 'books', to: 'user#books', as: 'user_books'
   end
 end
