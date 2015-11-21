@@ -4,7 +4,7 @@
 .row
   .col-md-12
     .searchbar-header
-      =form_tag(all_books_path, method: 'GET', class: 'input-group') do
+      =form_tag(searched_books_path, method: 'GET', class: 'input-group') do
         %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
         %span.input-group-btn
           =submit_tag('Suchen',
@@ -13,7 +13,7 @@
             class: 'btn btn-default')
       =link_to 'Alle Nutzer', users_path,
         class: 'btn btn-link users-link'
-      =link_to 'Alle Bücher im System', books_path,
+      =link_to 'Buch zum Profil hinzufügen', new_book_path,
         class: 'btn btn-link books-link'
 
 .row
