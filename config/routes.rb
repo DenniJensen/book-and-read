@@ -13,8 +13,14 @@ Rails.application.routes.draw do
   end
 
   resources :user do
-    resources :books, only: [:index, :show]
+    resource :borrow_requests, only: :index
+
+    resources :books, only: [:index, :show] do
+      resource :borrow_requests
+    end
+
     post 'books/:id', to: 'books#add_book_to_user', as: 'add_book'
     put 'books/:id', to: 'books#remove_book_from_user', as: 'remove_book'
   end
+
 end
