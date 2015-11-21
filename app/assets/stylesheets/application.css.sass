@@ -5,14 +5,61 @@
 @import bootstrap/theme
 @import font-awesome-sprockets
 @import font-awesome
-@import url(http://fonts.googleapis.com/css?family=Crafty+Girls)
+@import url(https://fonts.googleapis.com/css?family=Open+Sans)
+@import variables
+
+body
+  font-family: Open Sans
 
 .container
   max-width: 990px
 
-.navbar
-  margin-bottom: 50px
+.navbar-default
+  background: $blue-default
+
+  .navbar-header > a
+    color: $navbar-default-color
+    font-size: $font-size-base * 1.4
+    padding: 6px 0 0 $logo-width + 10px
+    background-image: url('logo-white.png')
+    background-repeat: no-repeat
+    margin-top: 3px
+    display: inline-block
+    height: $logo-height
+    width: $logo-width
+
+  .navbar-link
+    color: darken($navbar-default-color, 20%)
+
 
 footer
-  background: grey
-  height: 50px
+  background-color: $footer-bg
+  padding: 1.5*$gap-large 0
+  margin-top: 2*$gap-large
+  color: $footer-color
+
+
+  h4
+    border-bottom: 2px solid $link-color
+    display: inline-block
+    padding-bottom: $gap-xs
+
+  ul
+    padding-left: 0
+
+    li
+      border-bottom: 1px dotted darken($footer-color, 30%)
+      list-style-type: none
+      padding: $gap/2 0
+
+      a
+        color: lighten($footer-color, 20%)
+
+        &:hover
+          text-decoration: none
+          color: $link-color
+
+  address p
+    border-bottom: 1px dotted darken($footer-color, 30%)
+    padding: $gap/2 0
+    margin: 0

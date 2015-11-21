@@ -1,21 +1,24 @@
 =link_to book_path(book) do
-  .row.book-box.well.well-sm
-    .col-xs-2
+  .row.book-box
+    .col-sm-4
       .thumbnail
         =image_tag book.image_link
-    .col-xs-7
-      .row
+    .col-sm-8
+      .book-info
         %h3.title
           =book.title
-      .row
         %span
           Page Count:
-        =book.pages
-    .col-md-2.col-xs-2
-      = link_to book_owners_path(book) do
-        %button{ class: 'btn btn-primary' }Show owners
-      - if current_user
-        = link_to user_add_book_path(current_user, book),
-          method: :post,
-          remote: true do
-          %button{ class: 'btn btn-success' } Add to my Books
+          =book.pages
+        .button-group
+          = link_to book_owners_path(book) do
+            %button{ class: 'btn btn-primary' }
+              %i{ class: 'fa fa-users' }
+              Show owners
+          - if current_user
+            = link_to user_add_book_path(current_user, book),
+              method: :post,
+              remote: true do
+              %button{ class: 'btn btn-success' }
+                %i{ class: 'fa fa-plus' }
+                Add to my Books

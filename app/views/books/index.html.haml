@@ -1,4 +1,4 @@
-.page-header
+.page-header.container
   %h1
     Search results
     %small TEXT FROM SEARCHFIELD
@@ -9,8 +9,4 @@
     =@searched_for
 
 - @books.each do |book|
-  .row
-    .col-md-12
-      = render 'box', book: book
-
-
+  = render 'box', book: book
