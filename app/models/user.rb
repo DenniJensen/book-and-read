@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def borrow_requests
+    BorrowRequest.where(requester_id: id)
+  end
+
+  def lent_requests
+    BorrowRequest.where(owner_id: id)
+  end
+
   def name
     "#{first_name} #{last_name}"
   end

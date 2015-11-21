@@ -9,4 +9,6 @@
     =@searched_for
 
 - @books.each do |book|
-  = render 'box', book: book
+  .row
+    .col-md-12
+      = render 'books/box', book: book
