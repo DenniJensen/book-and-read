@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
   devise :omniauthable,
          :omniauth_providers => [:twitter, :github,
                                  :facebook, :google_oauth2]
-  has_and_belongs_to_many :books
   validates :first_name, presence: true
+
+  has_many :book_ownerships
+  has_many :books, through: :book_ownerships
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

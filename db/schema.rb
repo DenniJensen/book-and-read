@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121115229) do
+ActiveRecord::Schema.define(version: 20151121221256) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20151121115229) do
   end
 
   add_index "authors_books", ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
+
+  create_table "book_ownerships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_ownerships", ["book_id"], name: "index_book_ownerships_on_book_id"
+  add_index "book_ownerships", ["user_id"], name: "index_book_ownerships_on_user_id"
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -40,15 +50,8 @@ ActiveRecord::Schema.define(version: 20151121115229) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "books_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-  end
-
-  add_index "books_users", ["user_id", "book_id"], name: "index_books_users_on_user_id_and_book_id"
-
   create_table "borrow_requests", force: :cascade do |t|
-    t.integer  "requester_id"
+    t.integer  "borrower_id"
     t.integer  "owner_id"
     t.date     "borrow_start"
     t.date     "borrow_end"
