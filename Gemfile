@@ -20,7 +20,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 

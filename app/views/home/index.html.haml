@@ -16,10 +16,72 @@
       =link_to 'Buch zum Profil hinzufügen', new_book_path,
         class: 'btn btn-link books-link'
 
-.row
-  .col-md-4
-    .intro-box.first
-  .col-md-4
-    .intro-box
-  .col-md-4
-    .intro-box.last
+.row.margin-bottom-80
+  .col-md-4.center-text
+    .border
+      %h3.bold
+        1. Suchen
+      .step
+        =icon "search"
+        //=fa_icon "search"
+      %h4
+        Starte die Suche nach einem bestimmten Buch und lass dir anzeigen, wer es zuhause hat.
+  .col-md-4.center-text
+    .border
+      %h3.bold
+        2. Ausleihen
+      .step
+        =icon "comments"
+      %h4
+        Kontaktiere den örtlich nächsten Freund und einigt euch über Treffpunkt und Dauer.
+  .col-md-4.center-text
+    .border
+      %h3.bold
+        3. Lesen
+      .step
+        =icon "book"
+      %h4
+        Lies das Buch und lass dich von Book and Read daran erinnern, wann du es zurückgeben musst.
+
+.row.margin-top-bottom
+  .col-md-6
+    %h2
+      Das Projekt
+    %hr
+    %h4
+      Wir entwickeln ein Portal, das dem Nutzer ein Netzwerk zum Austauschen von
+      Fachbüchern bietet. Dieses funktioniert so ähnlich wie ein soziales Netzwerk,
+      sodass man einsehen kann, wer welche Bücher besitzt und die jeweilige Person
+      sofort kontaktieren kann. So lassen sich auch interessante neue Bücher entdecken
+      und den eigenen Freunden Bücher empfehlen.
+  .col-md-6
+    =image_tag("project.png", :class => "img-responsive")
+
+  .row.margin-top-bottom
+  .col-md-6
+    =image_tag("books.png", :class => "img-responsive")
+  .col-md-6
+    %h2
+      Unsere Motivation
+    %hr
+    %h4
+      Wir haben festgestellt, dass viele Leute tolle Bücher zuhause haben, wovon aber
+      keiner der Mitmenschen etwas weiß. Die eigenen Bücher werden meistens zuhause
+      eingelagert und verstauben im Regal, während sich die Freunde eventuell die selben
+      Bücher erneut kaufen. Besonders im Bereich teurer Fachbücher ist es eine große Hilfe,
+      wenn man sie sich für ein paar Wochen einfach von Freunden ausleihen kann.
+
+  .row.margin-top-bottom
+  .col-md-6
+    %h2
+      Das Team
+    %hr
+    %h4
+      Das Team hinter Book and Read besteht aus Martin Görick, Paul Kunze, Sophie Zabel, Dennis Hägler
+      und Philip Drozd.
+      Wir sind Informatik-Studenten an der Freien Universität Berlin und wir
+      entwickeln dieses Portal im Rahmen des
+      =link_to("Funpreneur-Wettbewerbs,", "http://www.fu-berlin.de/sites/profund/qualifizierung/bachelorstudium/funpreneur-wettbewerb/")
+      einer Veranstaltung von Profund Innovation.
+  .col-md-6
+    =image_tag("team-image.jpg", :class => "img-responsive")

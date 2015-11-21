@@ -1,14 +1,39 @@
+= link_to user_path(user) do
+  .well.user-box
+    .row
+      .col-xs-3.col-sm-2.max-width-80
+        = image_tag 'user_dummy.jpg', class: "img-responsive"
+      .col-xs-7.col-sm-7.red
+        .row.vertical-center
+          .center-block
+            %p
+              = user.name
+            %p
+              = user.email
+      .col-xs-12.col-sm-3
+        = link_to user_books_path(user) do
+          %button.btn.btn-primary.btn-block
+            Show Books
+        - if @book
+          = link_to '/' do
+            %button.btn.btn-primary.btn-block
+              Rent now
+
+
+
+
 .well.user-box
-  .row.vertical-center
-    .col-md-9.user-information
-      .col-md-3
-        = image_tag 'user_dummy.jpg', height: 80, widht: 80
-      .col-md-9
+  .row
+    .col-md-10.col-sm-9.col-xs-12
+      .col-xs-4.col-sm-3.col-md-2.max-width-80.red
+        .horizontal-center
+          = image_tag 'user_dummy.jpg'
+      .col-xs-8.col-sm-9.col-md-10
         %p
           = link_to user.name, user_path(user)
         %p
           = user.email
-    .col-md-3.buttons
+    .col-md-2.col-sm-3.col-xs-12
       = link_to user_books_path(user) do
         %button.btn.btn-primary.btn-block
           Show Books
