@@ -12,13 +12,17 @@
           =book.pages
         .button-group
           = link_to book_owners_path(book) do
-            %button{ class: 'btn btn-primary' }
-              %i{ class: 'fa fa-users' }
+            %button.btn.btn-primary
+              = fa_icon 'user'
               Show owners
           - if current_user
-            = link_to user_add_book_path(current_user, book),
+            = link_to user_books_path(current_user, book),
               method: :post,
               remote: true do
-              %button{ class: 'btn btn-success' }
-                %i{ class: 'fa fa-plus' }
+              %button.btn.btn-success
+                = fa_icon('plus')
                 Add to my Books
+          - else
+            %button.btn.btn-success.disabled
+              = fa_icon('plus')
+              Add to my Books

@@ -2,18 +2,19 @@
   .col-md-12
     %h1#headline Find your Book
 .row.search
-  .col-md-12
-    .searchbar-header
-      =form_tag(searched_books_path, method: 'GET') do
-        %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
-        =link_to 'Alle Nutzer', users_path,
-          class: 'btn btn-default users-link'
-        =link_to 'Buch zum Profil hinzufügen', new_book_path,
-          class: 'btn btn-default books-link'
+  .searchbar-header
+    =form_tag(searched_books_path, method: 'GET') do
+      %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
+      .buttons
         =submit_tag('Suchen',
           type: 'submit' ,
           value: 'Search',
           class: 'btn btn-primary')
+        - if current_user
+          =link_to 'Alle Nutzer', users_path,
+            class: 'btn btn-default users-link'
+          =link_to 'Buch zum Profil hinzufügen', new_book_path,
+            class: 'btn btn-default books-link'
 
 .row.margin-top-100.how-to
   .col-md-4.center-text
