@@ -12,9 +12,9 @@ describe User, type: :model do
 
   context 'borrow_request given' do
     before(:each) do
-      BorrowRequest.create(requester: user,
-                           owner: user_with_books,
-                           book: user_with_books.books.first)
+      BorrowRequest.create(requester_id: user.id,
+                           owner_id: user_with_books.id,
+                           book_id: user_with_books.books.first.id)
     end
 
     describe '.borrow_requests' do
@@ -29,6 +29,7 @@ describe User, type: :model do
       it 'returns no lent request' do
         expect(BorrowRequest.all.count).to eq 1
         expect(user_with_books.reload.lent_requests.count).to eq 1
+        expect(user.reload.lent_requests.count).to eq 0
       end
     end
   end

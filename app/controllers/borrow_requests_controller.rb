@@ -4,14 +4,10 @@ class BorrowRequestsController < ApplicationController
   end
 
   def create
-    owner = User.find(params[:user_id])
-    requester = User.find(params[:requester_id])
-    book = Book.find(params[:book_id])
-
     BorrowRequest.create(
-      owner: owner,
-      requester: requester,
-      book: book
+      owner_id: params[:user_id],
+      requester_id: params[:requester_id],
+      book_id: params[:book_id]
     )
     render nothing: true
   end

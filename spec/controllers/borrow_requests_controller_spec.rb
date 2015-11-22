@@ -5,9 +5,9 @@ describe BorrowRequestsController, type: :controller do
   let(:owner) { create :user, :with_books }
   let(:book_to_borrow) { owner.books.first }
   let(:borrow_request) do
-    BorrowRequest.create(requester: borrower,
-                         owner: owner,
-                         book: book_to_borrow)
+    BorrowRequest.create(requester_id: borrower.id,
+                         owner_id: owner.id,
+                         book_id: book_to_borrow.id)
   end
 
   describe 'GET /users/:user_id/books/:id' do
