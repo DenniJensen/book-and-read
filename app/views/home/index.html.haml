@@ -1,28 +1,27 @@
 .row
   .col-md-12
     %h1#headline Find your Book
-.row
+.row.search
   .col-md-12
     .searchbar-header
-      =form_tag(searched_books_path, method: 'GET', class: 'input-group') do
+      =form_tag(searched_books_path, method: 'GET') do
         %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
-        %span.input-group-btn
-          =submit_tag('Suchen',
-            type: 'submit' ,
-            value: 'Search',
-            class: 'btn btn-default')
-      =link_to 'Alle Nutzer', users_path,
-        class: 'btn btn-link users-link'
-      =link_to 'Buch zum Profil hinzufügen', new_book_path,
-        class: 'btn btn-link books-link'
+        =link_to 'Alle Nutzer', users_path,
+          class: 'btn btn-default users-link'
+        =link_to 'Buch zum Profil hinzufügen', new_book_path,
+          class: 'btn btn-default books-link'
+        =submit_tag('Suchen',
+          type: 'submit' ,
+          value: 'Search',
+          class: 'btn btn-primary')
 
-.row.margin-bottom-80
+.row.margin-top-100.how-to
   .col-md-4.center-text
     .border
       %h3.bold
         1. Suchen
       .step
-        =fa_icon "search"
+        =fa_icon 'search'
       %h4
         Starte die Suche nach einem bestimmten Buch und lass dir anzeigen, wer
         es zuhause hat.
@@ -31,7 +30,7 @@
       %h3.bold
         2. Ausleihen
       .step
-        =fa_icon "comments"
+        =fa_icon 'comments'
       %h4
         Kontaktiere den örtlich nächsten Freund und einigt euch über Treffpunkt
         und Dauer.
@@ -40,14 +39,17 @@
       %h3.bold
         3. Lesen
       .step
-        =fa_icon "book"
+        =fa_icon 'book'
       %h4
         Lies das Buch und lass dich von Book and Read daran erinnern, wann du
         es zurückgeben musst.
 
-.row.margin-top-bottom
+
+%hr
+
+.row.margin-top-100
   .col-md-6
-    %h2
+    %h2.info-header
       Das Projekt
     %hr
     %h4
@@ -60,11 +62,11 @@
   .col-md-6
     =image_tag("project.jpg", :class => "img-responsive")
 
-  .row.margin-top-bottom
+.row.margin-top-100
   .col-md-6
     =image_tag("books.jpg", :class => "img-responsive")
   .col-md-6
-    %h2
+    %h2.info-header
       Unsere Motivation
     %hr
     %h4
@@ -75,9 +77,9 @@
       teurer Fachbücher ist es eine große Hilfe, wenn man sie sich für ein paar
       Wochen einfach von Freunden ausleihen kann.
 
-  .row.margin-top-bottom
+.row.margin-top-100
   .col-md-6
-    %h2
+    %h2.info-header
       Das Team
     %hr
     %h4

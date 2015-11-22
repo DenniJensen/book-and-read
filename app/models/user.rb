@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :omniauthable,
          :omniauth_providers => [:twitter, :github,
                                  :facebook, :google_oauth2]
-  validates :first_name, presence: true
 
   has_many :book_ownerships
   has_many :books, through: :book_ownerships
