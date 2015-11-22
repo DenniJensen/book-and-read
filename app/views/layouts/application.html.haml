@@ -21,13 +21,18 @@
               Logged in as
               %strong
                 = current_user.email
-              = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+              = link_to 'Edit profile', edit_user_registration_path,
+                :class => 'navbar-link'
               |
-              = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+              = link_to "Logout", destroy_user_session_path,
+                method: :delete,
+                :class => 'navbar-link'
             - else
-              = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+              = link_to "Sign up", new_user_registration_path,
+                :class => 'navbar-link'
               |
-              = link_to "Login", new_user_session_path, :class => 'navbar-link'
+              = link_to "Login", new_user_session_path,
+                :class => 'navbar-link'
     .container
       - if notice
         %p.alert.alert-success= notice
@@ -41,9 +46,13 @@
           .col-sm-4
             %h4 Über uns
             %p
-              Das Team hinter Book and Read besteht aus Martin Görick, Paul Kunze, Sophie Zabel, Dennis Hägler und Philip Drozd.
+              Das Team hinter Book and Read besteht aus Martin Görick, Paul
+              Kunze, Sophie Zabel, Dennis Hägler und Philip Drozd.
             %p
-              Wir sind Informatik-Studenten an der Freien Universität Berlin und wir entwickeln dieses Portal im Rahmen des Funpreneur-Wettbewerbs, einer Veranstaltung von Profund Innovation.
+              Wir sind Informatik-Studenten an der Freien Universität Berlin
+              und wir entwickeln dieses Portal im Rahmen des
+              Funpreneur-Wettbewerbs, einer Veranstaltung von Profund
+              Innovation.
             %p
               © 2015 Book and Read
           .col-sm-4
@@ -51,13 +60,13 @@
             %nav
               %ul
                 %li
-                  %a{:href => "#"} Startseite
+                  = link_to 'Startseite', '#'
                 %li
-                  %a{:href => "#"} Über uns
+                  = link_to 'Über uns', '#'
                 %li
-                  %a{:href => "#"} Unterseite
+                  = link_to 'Unterseite', '#'
                 %li
-                  %a{:href => "#"} Kontakt
+                  = link_to 'Kontakt', '#'
           .col-sm-4
             %h4 Kontakt
             %address
