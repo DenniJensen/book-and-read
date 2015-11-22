@@ -21,6 +21,7 @@ gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
+gem 'bootstrap_forms'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
