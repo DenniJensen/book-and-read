@@ -3,12 +3,6 @@ require 'rails_helper'
 describe BooksController do
   let(:user_with_books) { create :user, :with_books }
 
-  describe 'GET books' do
-    it 'returns only books in ownership' do
-      skip
-    end
-  end
-
   describe 'GET books/new' do
     it 'returns all books in the database' do
       books = [create(:book)]
