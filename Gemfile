@@ -23,6 +23,12 @@ gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
 gem 'bootstrap_forms'
 
+gem 'unicorn'
+gem 'capistrano-rails', group: :development
+gem 'capistrano-rvm'
+gem 'capistrano-linked-files'
+gem 'capistrano-bundler'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development, :test do
