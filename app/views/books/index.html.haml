@@ -3,11 +3,6 @@
     Search results
     %small TEXT FROM SEARCHFIELD
 
--if @searched_for
-  .warning
-    You searched for:
-    =@searched_for
-
 - @books.each do |book|
   .row
     .col-md-12

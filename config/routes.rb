@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :rentals
-  resources :searched_books, only: :index
+  resources :searched_books, only: :create
 
-  resources :available_books, only: :index
+  resources :available_books, only: [:index, :show]
 
   resources :books, only: [:show, :new] do
     resources :owners, only: [:index, :show]
