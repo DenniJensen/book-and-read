@@ -40,6 +40,8 @@
               = link_to "Login", new_user_session_path,
                 :class => 'navbar-link'
     .container
+      = render_breadcrumbs separator: ' / '
+
       - if notice
         %p.alert.alert-success= notice
       - if alert
