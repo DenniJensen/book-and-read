@@ -4,7 +4,9 @@
 .row.search
   .searchbar-header
     =form_tag(searched_books_path, method: 'GET') do
-      %input.form-control{ type: 'text', placeholder: 'Welches Buch suchst du....'}
+      = text_field_tag :search, params[:search],
+        class: 'form-control',
+        placeholder: 'Welches Buch suchst du?'
       .buttons
         =submit_tag('Suchen',
           type: 'submit' ,

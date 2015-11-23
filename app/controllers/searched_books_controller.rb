@@ -1,6 +1,6 @@
 class SearchedBooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.search(params[:search])
     render 'books/index'
   end
 end
