@@ -12,11 +12,6 @@ class RentalsController < ApplicationController
   def show
   end
 
-  # GET /rentals/new
-  def new
-    @rental = Rental.new
-  end
-
   # GET /rentals/1/edit
   def edit
   end

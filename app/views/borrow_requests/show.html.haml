@@ -1,0 +1,22 @@
+app/views/borrow_requests/show.html.haml
+
+Anfrage von:
+= @borrow_request.requester.email
+%br
+Anfrage an:
+= @borrow_request.owner.email
+%br
+Start der Ausleihe:
+= @borrow_request.borrow_start
+%br
+Ende der Ausleihe:
+= @borrow_request.borrow_end
+%br
+
+= link_to 'Akzeptieren', new_rental_path(current_user),
+  class: 'btn btn-success'
+
+= link_to 'Löschen', user_borrow_requests_path(current_user),
+  class: "btn btn-danger"
+
+= link_to 'Zurück zu meinen Anfragen', user_borrow_requests_path(current_user)

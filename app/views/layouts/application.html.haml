@@ -24,6 +24,9 @@
               = link_to 'Meine Bücher', user_books_path(current_user),
                 class: 'navbar-link'
               |
+              = link_to 'Meine Anfragen', user_borrow_requests_path(current_user),
+                class: 'navbar-link'
+              |
               = link_to 'Edit profile', edit_user_registration_path,
                 :class => 'navbar-link'
               |

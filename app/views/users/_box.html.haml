@@ -15,7 +15,8 @@
           %button.btn.btn-primary.btn-block
             Show Books
         - if @book
-          = link_to '/' do
+          = link_to user_book_borrow_requests_path(user, @book,
+            requester_id: current_user), method: :post do
             %button.btn.btn-primary.btn-block
               Rent now
 
