@@ -18,6 +18,10 @@ body
   content: "|"
   color: darken($navbar-default-color, 8%)
 
+.input-group-btn input
+  background-image: none
+  border-radius: 5px
+
 .navbar-default
   background: $blue-default
 
@@ -33,6 +37,12 @@ body
     width: $logo-width
     position: absolute
 
+    &:hover
+      text-decoration: none
+
+    @media(max-width:767px)
+      left: $gap+$gap-sm/2
+
   .navbar-link
     color: darken($navbar-default-color, 8%)
 
@@ -47,6 +57,10 @@ body
     right: 0
     padding-top: ($navbar-height - $font-size-base) / 3
     cursor: pointer
+    color: darken($navbar-default-color, 8%)
+
+    &:hover
+      color: darken($navbar-default-color, 14%)
 
     .dropdown-menu li a
       color: $text-color
