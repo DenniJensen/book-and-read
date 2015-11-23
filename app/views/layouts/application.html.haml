@@ -9,36 +9,26 @@
     %nav.navbar.navbar-default
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#main-navigation", "data-toggle" => "collapse", :type => "button"}
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false",
+           "data-target" => "#main-navigation", "data-toggle" => "collapse",
+            :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
           = link_to 'BookAndRead', '/'
-        #main-navigation.navbar-collapse
-          .login-box
+
+        #main-navigation.collapse.navbar-collapse
+          %ul.nav.navbar-nav
             - if user_signed_in?
-              Logged in as
-              %strong
-                = current_user.email
-              = link_to 'Meine Bücher', user_books_path(current_user),
-                class: 'navbar-link'
-              |
-              = link_to 'Meine Anfragen', user_borrow_requests_path(current_user),
-                class: 'navbar-link'
-              |
-              = link_to 'Edit profile', edit_user_registration_path,
-                :class => 'navbar-link'
-              |
-              = link_to "Logout", destroy_user_session_path,
-                method: :delete,
-                :class => 'navbar-link'
+              = render "layouts/dropdown"
             - else
               = link_to "Register", new_user_registration_path,
                 :class => 'navbar-link'
               |
               = link_to "Login", new_user_session_path,
                 :class => 'navbar-link'
+
     .container
       - if notice
         %p.alert.alert-success= notice

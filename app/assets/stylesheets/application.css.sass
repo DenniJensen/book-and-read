@@ -31,6 +31,19 @@ body
   .navbar-link
     color: darken($navbar-default-color, 20%)
 
+  .navbar-collapse
+    position: relative
+
+  .dropdown
+    position: absolute
+    right: 0
+    color: darken($navbar-default-color, 10%)
+    padding-top: ($navbar-height - $font-size-base) / 3
+    cursor: pointer
+
+    .dropdown-menu li a
+      color: $text-color
+
 
 footer
   background-color: $footer-bg
@@ -63,3 +76,5 @@ footer
     border-bottom: 1px dotted darken($footer-color, 30%)
     padding: $gap/2 0
     margin: 0
+
+  .dropdown
