@@ -2,6 +2,9 @@ class BooksController < ApplicationController
   before_action :assign_user, only: [:index, :create, :destroy]
   before_action :assign_book, only: [:show, :create, :destroy]
 
+  add_breadcrumb "Startseite", :root_path
+  add_breadcrumb "Bücher", :available_books_path
+
   def index
     @books = @user.books
   end
