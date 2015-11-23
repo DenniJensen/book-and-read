@@ -23,11 +23,13 @@
             - if user_signed_in?
               = render "layouts/dropdown"
             - else
-              = link_to "Register", new_user_registration_path,
-                :class => 'navbar-link'
-              |
-              = link_to "Login", new_user_session_path,
-                :class => 'navbar-link'
+              .dropdown
+                =fa_icon "sign-in",class: "navbar-link"
+                = link_to "Register", new_user_registration_path,
+                  :class => 'navbar-link seperator'
+
+                = link_to "Login", new_user_session_path,
+                  :class => 'navbar-link'
 
     .container
       = render_breadcrumbs separator: ' / '

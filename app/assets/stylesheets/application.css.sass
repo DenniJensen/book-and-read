@@ -14,6 +14,10 @@ body
 .container
   max-width: 990px
 
+.seperator:after
+  content: "|"
+  color: darken($navbar-default-color, 8%)
+
 .navbar-default
   background: $blue-default
 
@@ -29,7 +33,10 @@ body
     width: $logo-width
 
   .navbar-link
-    color: darken($navbar-default-color, 20%)
+    color: darken($navbar-default-color, 8%)
+
+    &:hover
+      color: darken($navbar-default-color, 15%)
 
   .navbar-collapse
     position: relative
@@ -37,12 +44,12 @@ body
   .dropdown
     position: absolute
     right: 0
-    color: darken($navbar-default-color, 10%)
     padding-top: ($navbar-height - $font-size-base) / 3
     cursor: pointer
 
     .dropdown-menu li a
       color: $text-color
+
 
 
 footer
@@ -76,5 +83,3 @@ footer
     border-bottom: 1px dotted darken($footer-color, 30%)
     padding: $gap/2 0
     margin: 0
-
-  .dropdown
