@@ -17,10 +17,9 @@
 
 - if @books.empty?
   %p.warning
-    Leider keine Bücher für
+    Leider hat niemand ein Buch für
     %strong
       = @searched_for
-    gefunden
 
 - @books.each do |book|
   .row
