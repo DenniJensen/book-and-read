@@ -11,7 +11,6 @@ class BooksController < ApplicationController
 
   def new
     @books = Book.all
-    render 'books/index'
   end
 
   def create
