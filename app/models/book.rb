@@ -14,4 +14,12 @@ class Book < ActiveRecord::Base
     return all unless search
     where("title like ?", "%#{search}%")
   end
+
+  def self.available
+    joins(:book_ownerships).where.not(book_ownerships: { user_id: nil })
+  end
+
+  def available?
+    owners.count > 0
+  end
 end

@@ -1,0 +1,21 @@
+.page-header.container
+  %h1
+    Bücher such nach:
+    %small
+      = @searched_for
+.row
+  .col-md-8
+    =form_tag(searched_books_path, class: 'input-group') do
+      = text_field_tag :search, params[:search],
+        class: 'form-control',
+        placeholder: 'Nicht gefunden? Suche weiter...'
+      %span.input-group-btn
+        =submit_tag('Suchen',
+          type: 'submit' ,
+          value: 'Search',
+          class: 'btn btn-primary')
+
+- @books.each do |book|
+  .row
+    .col-md-12
+      = render 'books/box', book: book
