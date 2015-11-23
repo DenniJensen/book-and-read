@@ -1,7 +1,6 @@
 class AvailableBooksController < ApplicationController
   def index
-    @books = Book.joins(:book_ownerships)
-      .where.not(book_ownerships: { user_id: nil })
+    @books = Book.available
     render 'books/index'
   end
 end

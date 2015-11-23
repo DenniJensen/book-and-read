@@ -1,6 +1,7 @@
 class SearchedBooksController < ApplicationController
-  def index
-    @books = Book.search(params[:search])
-    render 'books/index'
+  def create
+    @searched_for = params[:search]
+    @books = Book.search(@searched_for)
+    render 'searched_books/index'
   end
 end
