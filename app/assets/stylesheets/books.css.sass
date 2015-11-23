@@ -3,10 +3,30 @@
 // dependencies
 @import variables
 
+.button-group
+  margin-left: $gap
+  display: inline-block
+  position: absolute
+  bottom: $gap
+  right: $gap
+
+button
+  display: inline-block
+  height: auto
+  margin-top: $gap-sm
+  border-radius: 5px
+  box-shadow: 4px 4px rgba(0,0,0,0.1)
+
+  &.btn-primary, &.btn-success
+    background-image: none
+    padding: $padding-large-vertical*0.8 $padding-large-horizontal*0.8
+    font-size: $button-font-size
+    box-shadow: 4px 4px rgba(0,0,0,0.1)
+
 .book-box
   position: relative
-  background: $book-box-bg
-  border: 1px solid darken($book-box-bg, 10%)
+  background: $list-box-bg
+  border: 1px solid darken($list-box-bg, 10%)
   margin: $gap auto
 
   .col-sm-4 .thumbnail
@@ -19,10 +39,6 @@
     position: static
 
     .book-info
-      position: absolute
-      margin: 0 auto
-      top: 50%
-      transform: translateY(-50%)
 
       h3
         font-size: $font-size-base * 2.2
@@ -32,24 +48,7 @@
         position: relative
         top: $padding-large-vertical / 2
 
-      .button-group
-        margin-left: $gap
-        display: inline-block
 
-        button
-          padding: $padding-large-vertical $padding-large-horizontal
-          font-size: $button-font-size
-          display: inline-block
-          height: auto
-          margin-top: $gab-small
-          border-radius: 5px
-          box-shadow: 4px 4px rgba(0,0,0,0.1)
-
-          &.btn-primary, &.btn-success
-            background-image: none
-
-          i
-            margin-right: $gap-xs
 
 h1
   color: $blue-default !important
