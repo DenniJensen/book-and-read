@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
 
   def self.search(search)
     return all unless search
-    where("title like ?", "%#{search}%")
+    self.available.where("title like ?", "%#{search}%")
   end
 
   def self.available
