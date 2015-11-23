@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20151121221256) do
   end
 
   create_table "borrow_requests", force: :cascade do |t|
-    t.integer  "borrower_id"
+    t.integer  "requester_id"
     t.integer  "owner_id"
     t.date     "borrow_start"
     t.date     "borrow_end"

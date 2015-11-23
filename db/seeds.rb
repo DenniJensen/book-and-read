@@ -20,22 +20,16 @@ json.each do |book|
   b.save
 end
 
-['Dennis', 'Paul', 'Martin'].each do |name|
-  User.create email:  "#{name}@test.com",
-              password: 'secredfdaff',
-              first_name: name,
-              last_name: 'Lastname'
-end
 
-User.first(2).each do |user|
-  user.books << Book.all
-  user.save
-end
-
-(1..100).each do |number|
+5.times do |number|
   User.create email:  "Dummy_user#{number}@test.com",
               password: 'secredfdaff',
               first_name: "Dummy_#{number}",
               last_name: 'Dummkopf'
+end
+
+User.first(2).each do |user|
+  user.books << Book.last(2)
+  user.save
 end
 
