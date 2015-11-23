@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123163133) do
+ActiveRecord::Schema.define(version: 20151121221256) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -37,17 +37,15 @@ ActiveRecord::Schema.define(version: 20151123163133) do
   add_index "book_ownerships", ["user_id"], name: "index_book_ownerships_on_user_id"
 
   create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.text     "subtitle"
-    t.date     "published_at"
-    t.text     "description"
-    t.string   "language"
-    t.string   "image_link"
-    t.integer  "pages"
-    t.string   "isbn"
-    t.string   "isbn_13"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.text    "title"
+    t.text    "subtitle"
+    t.string  "published_at"
+    t.text    "description"
+    t.string  "language"
+    t.string  "image_link"
+    t.integer "pages"
+    t.string  "isbn"
+    t.string  "isbn_13"
   end
 
   create_table "borrow_requests", force: :cascade do |t|
