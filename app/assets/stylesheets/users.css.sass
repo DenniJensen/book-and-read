@@ -1,3 +1,46 @@
+// users.css.sass
+
+@import variables
+
+// general
+.emphatized
+  color: $blue-default
+
+// user listing
+.user-box
+  position: relative
+  background: $list-box-bg
+  border: 1px solid darken($list-box-bg, 10%)
+  margin: $gap auto
+  padding: $gap-sm
+
+  img
+    border-radius: 100%
+    border: 1px solid darken($list-box-bg, 15%)
+
+  .button-group
+    text-align: right
+    position: static
+
+    button
+      padding: $padding-large-vertical*0.8 $padding-large-horizontal*0.8
+      font-size: $button-font-size*0.8
+      display: inline-block
+      height: auto
+      margin: $gap-sm 0 0 0
+      border-radius: 5px
+      box-shadow: 4px 4px rgba(0,0,0,0.1)
+      position: absolute
+      bottom: $gap
+      right: $gap-sm
+
+      &.btn-primary
+        background-image: none
+
+
+  .user-name
+    font-size: $font-size-base*1.5
+
 .vertical-center
   display: flex
   align-items: center
@@ -12,4 +55,3 @@
 .horizontal-center
   margin: 0 auto
   width: 50%
-
