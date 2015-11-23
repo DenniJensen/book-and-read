@@ -3,6 +3,7 @@ lock '3.4.0'
 
 set :application, 'bookandread'
 set :repo_url, 'git@github.com:DenniJensen/book-and-read.git'
+set :branch, 'unicorn-capistrano'
 set :deploy_to, '/opt/www/bookandread'
 set :user, 'deploy'
 set :linked_files, %w(config/oauth_keys.yml config/initializers/devise.rb)
