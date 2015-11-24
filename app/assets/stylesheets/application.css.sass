@@ -14,7 +14,22 @@ body
 
 .alert-success
   background-image: none
-  
+
+.btn-danger, .btn-success, .btn-warning
+  background-image: none
+  box-shadow: 4px 4px rgba(0,0,0,0.1)
+  margin-right: $gap-xs
+
+.btn-danger
+
+.btn-success
+
+.seperated-sm
+  margin-top: $gap-sm
+
+.seperated
+  margin-top: $gap
+
 .container
   max-width: 990px
 
@@ -102,3 +117,33 @@ footer
     border-bottom: 1px dotted darken($footer-color, 30%)
     padding: $gap/2 0
     margin: 0
+
+.dropdown-places
+  padding: $gap-xs
+  border-radius: 4px
+  cursor: pointer
+
+.submit-button input
+  display: inline-block
+  height: auto
+  margin-top: $gap-sm
+  border-radius: 5px
+  box-shadow: 4px 4px rgba(0,0,0,0.1)
+  padding: $padding-large-vertical*0.7 $padding-large-horizontal*0.7
+  font-size: $button-font-size*0.9
+  background: $blue-default
+  color: $btn-default-color
+  border: $btn-primary-border
+
+  &:hover
+    background: darken($blue-default, 10%)
+
+  &.btn-primary, &.btn-success
+    background-image: none
+    box-shadow: 4px 4px rgba(0,0,0,0.1)
+
+.red-child input
+  background: $brand-danger
+
+  &:hover
+    background: darken($brand-danger, 10%)
