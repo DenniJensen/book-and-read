@@ -11,6 +11,9 @@ class BorrowRequestsController < ApplicationController
     @borrow_request = BorrowRequest.find(params[:id])
   end
 
+  def edit
+  end
+
   def new
     @borrow_request = BorrowRequest.new
     @places = Place.all
@@ -25,6 +28,11 @@ class BorrowRequestsController < ApplicationController
       flash[:alert] = "Anfrage konnte nicht übergeben werden"
       render nothing: true
     end
+  end
+
+  def destroy
+    BorrowRequest.find(params[:id]).delete
+    redirect_to action: :index, status: 303
   end
 
   private

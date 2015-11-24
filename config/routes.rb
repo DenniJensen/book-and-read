@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show] do
-    resources :borrow_requests, only: [:index, :show]
+    resources :borrow_requests, only: [:index, :show, :destroy]
 
     resources :books do
       resources :borrow_requests, only: [:new, :create]

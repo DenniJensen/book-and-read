@@ -6,7 +6,7 @@ class Rental < ActiveRecord::Base
 
   def self.from(borrow_request_id)
     borrow_request = BorrowRequest.find(borrow_request_id)
-    create(
+    new(
       book: borrow_request.book,
       owner: borrow_request.owner,
       borrower: borrow_request.requester,
