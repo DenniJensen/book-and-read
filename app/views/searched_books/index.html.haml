@@ -14,6 +14,8 @@
           type: 'submit' ,
           value: 'Search',
           class: 'btn btn-primary')
+    = link_to 'Alle Ausleihbaren Bücher', available_books_path,
+      class: 'available-book-link'
 
 - if @books.empty?
   %p.warning
