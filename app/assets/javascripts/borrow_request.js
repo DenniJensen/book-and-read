@@ -1,5 +1,5 @@
-$('a.linked-none').click(function() { return false; });
-
-$(function() {
-  $( ".datepicker" ).datepicker({ dateFormat: 'D, dd M yy' });
+$(document).on('page:change', function () {
+  $(function() {
+    $( ".datepicker" ).datepicker({ dateFormat: 'D, dd M yy' });
+  });
 });
