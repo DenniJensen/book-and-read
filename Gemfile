@@ -23,6 +23,8 @@ gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
 gem 'bootstrap_forms'
 
+gem 'unicorn'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development, :test do
