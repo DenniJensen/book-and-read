@@ -2,6 +2,8 @@ class BorrowRequestsController < ApplicationController
   add_breadcrumb "Startseite", :root_path
   add_breadcrumb "Anfragen", :user_borrow_requests_path
 
+  before_action :authenticate_user!
+
   def index
     @borrow_requests = BorrowRequest.where(requester_id: params[:user_id])
     @lent_request = BorrowRequest.where(owner_id: params[:user_id])

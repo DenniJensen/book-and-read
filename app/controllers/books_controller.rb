@@ -5,6 +5,8 @@ class BooksController < ApplicationController
   add_breadcrumb "Startseite", :root_path
   add_breadcrumb "Bücher", :available_books_path
 
+  before_action :authenticate_user!
+
   def index
     @books = @user.books
   end
