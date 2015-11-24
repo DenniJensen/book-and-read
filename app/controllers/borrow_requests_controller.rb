@@ -12,15 +12,12 @@ class BorrowRequestsController < ApplicationController
   end
 
   def new
-    @borrow_reuqest = BorrowRequest.new
+    @borrow_request = BorrowRequest.new
+    @places = Place.all
   end
 
   def create
-    created = BorrowRequest.create(
-      owner_id: params[:user_id],
-      requester_id: params[:requester_id],
-      book_id: params[:book_id]
-    )
+    created = BorrowRequest.create(user_borrow_request.merge(borrow_request_params))
     if created
       flash[:notice] = "Anfrage gesendet"
       render 'home/index'
@@ -28,5 +25,19 @@ class BorrowRequestsController < ApplicationController
       flash[:alert] = "Anfrage konnte nicht übergeben werden"
       render nothing: true
     end
+  end
+
+  private
+
+  def borrow_request_params
+    params[:borrow_request]
+  end
+
+  def user_borrow_request
+    {
+      requester_id: params[:requester_id],
+      book_id: params[:book_id],
+      owner_id: params[:user_id]
+    }
   end
 end

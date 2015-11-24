@@ -1,0 +1,21 @@
+= form_for(@borrow_request,
+  url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
+  .field
+    = f.label 'Start des Verleihs'
+    %br
+    = f.text_field :borrow_start, class: 'datepicker', required: true
+  .field
+    = f.label 'Rückgabe'
+    %br
+    = f.text_field :borrow_end, class: 'datepicker', required: true
+  .dropdown
+    %div.btn.btn-default#dropdown-login.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+      Ort zum Austauschen
+      %span.caret
+    %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+      - @places.each do |place|
+        %li
+          = link_to "#{place.name}", new_book_path, class: 'linked-none'
+  .actions
+    = f.submit "Anfragen"
+
