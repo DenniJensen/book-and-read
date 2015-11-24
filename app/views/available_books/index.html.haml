@@ -1,0 +1,24 @@
+.page-header.container
+  %h1
+    Bücher zum Ausleihen
+
+- @books.each do |book|
+  .row
+    .col-md-12
+      =link_to book_path(book) do
+        .row.book-box
+          .col-sm-2
+            .thumbnail
+              =image_tag book.image_link
+          .col-sm-10
+            .book-info
+              %h3.title
+                =book.title
+              %span
+                Page Count:
+                =book.pages
+            .button-group
+              = link_to book_owners_path(book) do
+                %button.btn.btn-primary
+                  = fa_icon 'user'
+                  Zu den Besitzern
