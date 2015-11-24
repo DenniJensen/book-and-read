@@ -1,13 +1,11 @@
-= form_for(@borrow_request,
+= bootstrap_form_for(@borrow_request,
   url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
   .field
-    = f.label 'Start des Verleihs'
-    %br
-    = f.text_field :borrow_start, class: 'datepicker', required: true
+    = f.text_field :borrow_start, class: 'datepicker',
+      label: 'Start des Verleihs', required: true
   .field
-    = f.label 'Rückgabe'
-    %br
-    = f.text_field :borrow_end, class: 'datepicker', required: true
+    = f.text_field :borrow_end, class: 'datepicker',
+      label: 'Verleih bis', required: true
   .dropdown
     /%div.btn.btn-default#dropdown-login.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
     /  Ort zum Austauschen
