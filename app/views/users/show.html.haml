@@ -1,2 +1,10 @@
 %p
   app/views/users/show
+
+%p
+  = @user.email
+
+%ul
+  - @user.books.each do |book|
+    %li
+      = book.title
