@@ -16,7 +16,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to 'BookAndRead', '/'
+          = link_to 'BookAndRead', root_path
 
         #main-navigation.collapse.navbar-collapse
           %ul.nav.navbar-nav
@@ -27,13 +27,11 @@
                 =fa_icon "sign-in",class: "navbar-link"
                 = link_to "Register", new_user_registration_path,
                   :class => 'navbar-link seperator'
-
                 = link_to "Login", new_user_session_path,
                   :class => 'navbar-link'
 
     .container
       = render_breadcrumbs separator: ' / '
-
       - if notice
         %p.alert.alert-success= notice
       - if alert
