@@ -1,4 +1,7 @@
 class BorrowRequestsController < ApplicationController
+  add_breadcrumb "Startseite", :root_path
+  add_breadcrumb "Anfragen", :user_borrow_requests_path
+
   def index
     @borrow_requests = BorrowRequest.where(requester_id: params[:user_id])
     @lent_request = BorrowRequest.where(owner_id: params[:user_id])
@@ -6,6 +9,10 @@ class BorrowRequestsController < ApplicationController
 
   def show
     @borrow_request = BorrowRequest.find(params[:id])
+  end
+
+  def new
+    @borrow_reuqest = BorrowRequest.new
   end
 
   def create
