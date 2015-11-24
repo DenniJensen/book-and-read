@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
   end
 
   def self.available
-    joins(:book_ownerships).where.not(book_ownerships: { user_id: nil })
+    joins(:book_ownerships).uniq
   end
 
   def available?
