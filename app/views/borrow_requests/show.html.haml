@@ -13,10 +13,13 @@ Ende der Ausleihe:
 = @borrow_request.borrow_end
 %br
 
-= link_to 'Akzeptieren', new_rental_path(current_user),
+= link_to 'Akzeptieren', new_rental_path(borrow_request_id: @borrow_request),
   class: 'btn btn-success'
 
-= link_to 'Löschen', user_borrow_requests_path(current_user),
-  class: "btn btn-danger"
+= link_to 'Bearbeiten', '/',
+  class: 'btn btn-warning'
 
-= link_to 'Zurück zu meinen Anfragen', user_borrow_requests_path(current_user)
+= link_to 'Löschen', user_borrow_request_path(current_user, @borrow_request),
+  method: 'delete',
+  data: { confirm: 'Willst du die Anfrage wirkliche löschen?' },
+  class: 'btn btn-danger'

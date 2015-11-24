@@ -1,5 +1,22 @@
-%h1 New rental
+%h2 Anfrage Akzeptieren?
+%p
+  Buch:
+  = @rental.book.title
+%p
+  Start:
+  = @rental.start
+%p
+  Ende:
+  = @rental.end
+%p
+  An:
+  = @rental.borrower.email
 
-= render 'form'
-
-= link_to 'Back', rentals_path
+=form_for(@rental) do |f|
+  = f.text_field :start, hidden: true
+  = f.text_field :end, hidden: true
+  = f.text_field :borrower, hidden: true
+  = f.text_field :owner, hidden: true
+  = f.text_field :book, hidden: true
+  = f.submit "Stimmt so", class: 'btn btn-success'
+  = link_to 'Nee Stop', '#', class: 'btn btn-danger'
