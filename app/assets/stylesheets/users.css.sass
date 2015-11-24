@@ -10,6 +10,7 @@
 .user-box
   position: relative
   background: $list-box-bg
+  border-radius: 4px
   border: 1px solid darken($list-box-bg, 10%)
   margin: $gap auto
   padding: $gap-sm
@@ -41,17 +42,21 @@
   .user-name
     font-size: $font-size-base*1.5
 
-.vertical-center
-  display: flex
-  align-items: center
+// user show
 
-.max-width-80
-  img
-    max-width: 80px
+.section-seperated
+  margin-top: 2*$gap-large
 
-.red
-  background: red
+.profile
+  border: 1px solid darken($list-box-bg, 10%)
+  background: $list-box-bg
+  border-radius: 4px
+  margin-top: $gap
+  padding: $gap-sm
 
-.horizontal-center
-  margin: 0 auto
-  width: 50%
+  .profile-image
+    width: 70%
+    height: 70%
+    border: 1px solid darken($list-box-bg, 15%)
+
+  .profile-info
