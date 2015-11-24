@@ -3,6 +3,8 @@ class OwnersController < ApplicationController
   add_breadcrumb "Verfügbare Bücher", :available_books_path
   add_breadcrumb "Buchbesitzer", :book_owners_path
 
+  before_action :authenticate_user!
+
   def index
     @book = Book.find(params[:book_id])
     @users = @book.owners if @book
