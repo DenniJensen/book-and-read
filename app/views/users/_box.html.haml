@@ -13,7 +13,6 @@
               = user.email
       .col-xs-12.col-sm-3.button-group
         - if @book
-          = link_to new_user_book_borrow_request_path(user_id: user.id,
-            book_id: @book.id, requester_id: current_user.id) do
+          = link_to new_user_book_borrow_request_path(user, @book) do
             %button.btn.btn-primary
               Rent now

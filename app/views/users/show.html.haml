@@ -29,7 +29,7 @@
               Page Count:
               =book.pages
           .button-group
-            = link_to book_owners_path(book) do
+            = link_to new_user_book_borrow_request_path(@user, @book) do
               %button.btn.btn-primary
                 = fa_icon 'check'
                 Rent
