@@ -8,14 +8,6 @@
       = f.text_field :borrow_end, class: 'datepicker',
         label: 'Verleih bis', required: true
     .dropdown.seperated-sm
-      /%div.btn.btn-default#dropdown-login.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-      /  Ort zum Austauschen
-      /  %span.caret
-      /%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-      /  - @places.each do |place|
-      /    %li
-      /      = link_to "#{place.name}", new_book_path, class: 'linked-none'
-
       %select.dropdown-places{:name => "places"}
         %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
           - @places.each do |place|
