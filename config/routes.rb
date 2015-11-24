@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :borrow_requests, only: [:index, :show]
 
     resources :books do
-      resources :borrow_requests, only: :create
+      resources :borrow_requests, only: [:new, :create]
     end
   end
 end
