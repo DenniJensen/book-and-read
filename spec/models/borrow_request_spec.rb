@@ -9,4 +9,16 @@ describe BorrowRequest, type: :model do
     expect(borrow_request.requester.borrow_requests.first).to(
       eq borrow_request)
   end
+
+  context 'borrow request on same user with same book' do
+    it 'cannot create a second borrow request' do
+      requester = borrow_request.requester
+      owner = borrow_request.owner
+      book = borrow_request.book
+      new_request = BorrowRequest.new(requester: requester,
+                                     owner: owner,
+                                     book: book)
+      expect(new_request.save).to be_falsy
+    end
+  end
 end
