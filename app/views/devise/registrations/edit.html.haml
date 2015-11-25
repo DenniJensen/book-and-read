@@ -3,7 +3,6 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
 
-
   .form-horizontal
     .form-group
       = f.label :first_name, class: "col-sm-2 control-label"
@@ -30,9 +29,6 @@
       .col-sm-10
         = f.password_field :current_password, autocomplete: "off", class: "form-control"
 
-
-
-
     .form-group
       .col-sm-offset-2.col-sm-10
-        = f.submit "Update", class: "btn-primary"
+        = f.submit "Update", class: "btn btn-primary"
