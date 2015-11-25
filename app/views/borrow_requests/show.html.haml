@@ -13,7 +13,8 @@
     = @borrow_request.borrow_end
 
 .seperated
-  = link_to 'Akzeptieren', new_rental_path(borrow_request_id: @borrow_request),
+  = link_to 'Akzeptieren', rentals_path(borrow_request_id: @borrow_request),
+    method: 'post',
     class: 'btn btn-success'
 
   = link_to 'Bearbeiten', '/',

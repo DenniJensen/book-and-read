@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show] do
+    resources :rentals, only: [:index]
     resources :borrow_requests, only: [:index, :show, :destroy]
 
     resources :books do

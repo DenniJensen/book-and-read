@@ -12,22 +12,15 @@ class RentalsController < ApplicationController
   def edit
   end
 
-  def new
-    @rental = Rental.from(params[:borrow_request_id])
-  end
-
   def create
-    @rental = Rental.new(rental_params)
-
-    respond_to do |format|
+    @rental = Rental.from(params[:borrow_request_id])
       if @rental.save
-        format.html { redirect_to @rental, notice: 'Rental was successfully created.' }
-        format.json { render :show, status: :created, location: @rental }
+        BorrowRequest.delete(params[:borrow_request_id])
+        redirect_to controller: :borrow_requests, action: :index, user_id: current_user.id,
+          notice: 'Rental was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @rental.errors, status: :unprocessable_entity }
+         render :show
       end
-    end
   end
 
   def update
@@ -58,6 +51,6 @@ class RentalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def rental_params
-    params[:rental]
+    params.require(:rental).permit(:start, :end, :borrower, :owner, :book)
   end
 end

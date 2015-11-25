@@ -1,19 +1,19 @@
-%h1 Listing rentals
+%h2 Alle Verleihe
 
-%table
+%table.table
   %thead
     %tr
-      %th
-      %th
-      %th
+      %th Verleih ab
+      %th Verleih bis
+      %th Verliehen an
 
   %tbody
     - @rentals.each do |rental|
       %tr
-        %td= link_to 'Show', rental
-        %td= link_to 'Edit', edit_rental_path(rental)
-        %td= link_to 'Destroy', rental, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= rental.start
+        %td= rental.end
+        %td= rental.borrower.email
+        -# %td= link_to 'Show', rental
+        -# %td= link_to 'Destroy', rental, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Rental', new_rental_path
