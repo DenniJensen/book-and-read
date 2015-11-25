@@ -1,5 +1,7 @@
 $(document).on('page:change', function () {
   $(function() {
-    $( ".datepicker" ).datepicker({ dateFormat: 'D, dd M yy' });
+    $( ".datepicker" ).datepicker({
+      dateFormat: 'D, dd M yy'
+    });
   });
 });

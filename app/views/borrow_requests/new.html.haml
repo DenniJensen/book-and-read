@@ -3,12 +3,12 @@
     url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
     .field.seperated-sm
       = f.text_field :borrow_start, class: 'datepicker',
-        label: 'Start des Verleihs', required: true
+        label: 'Wann willst du das Buch erhalten?', required: true
     .field.seperated-sm
       = f.text_field :borrow_end, class: 'datepicker',
-        label: 'Verleih bis', required: true
+        label: 'Verleih bis wann willst du es behalten?', required: true
     .field.seperated-sm
       = f.collection_radio_buttons :place_id, @places, :id, :name,
-        label: 'Ort des Austausches', required: true
+        label: 'An welchen Ort wird der Tausch vorgenommen?', required: true
     .submit-button.actions.seperated-sm
       = f.submit "Anfragen"
