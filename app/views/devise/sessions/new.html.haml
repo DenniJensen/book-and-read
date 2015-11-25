@@ -2,20 +2,20 @@
 = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-horizontal
     .form-group
-      .col-sm-9
+      .col-sm-4
         = f.email_field :email, autofocus: true, class: "form-control"
 
     .form-group
-      .col-sm-9
+      .col-sm-4
         = f.password_field :password, autocomplete: "off", class: "form-control"
 
     .form-group
-      .col-sm-9.horizontally-seperated-large
+      .col-sm-4.horizontally-seperated-large
         - if devise_mapping.rememberable?
           = f.check_box :remember_me
 
     .form-group
-      .col-sm-9
+      .col-sm-4
         .actions
           = f.submit "Log in"
           = render "devise/shared/links"
