@@ -8,7 +8,7 @@
       = f.text_field :borrow_end, class: 'datepicker',
         label: 'Verleih bis', required: true
     .field.seperated-sm
-      = f.collection_select(:place_id, @places, :id, :name,
-        label: 'Ort des Austausches')
+      = f.collection_radio_buttons :place_id, @places, :id, :name,
+        label: 'Ort des Austausches', required: true
     .submit-button.actions.seperated-sm
       = f.submit "Anfragen"
