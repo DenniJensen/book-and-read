@@ -53,12 +53,10 @@
             %h4 Über uns
             %p
               Das Team hinter Book and Read besteht aus Martin Görick, Paul
-              Kunze, Sophie Zabel, Dennis Hägler und Philip Drozd.
+              Kunze, Dennis Hägler und Philip Drozd.
             %p
-              Wir sind Informatik-Studenten an der Freien Universität Berlin
-              und wir entwickeln dieses Portal im Rahmen des
-              Funpreneur-Wettbewerbs, einer Veranstaltung von Profund
-              Innovation.
+              Wir wollen den Austausch von Fachbüchern fördern und dafür
+              eine Plattform für alle bereitstellen.
             %p
               © 2015 Book and Read
           .col-sm-4
@@ -66,17 +64,14 @@
             %nav
               %ul
                 %li
-                  = link_to 'Startseite', '#'
+                  = link_to 'Startseite', root_path
                 %li
-                  = link_to 'Über uns', '#'
+                  = link_to 'Verfügbare Bücher', available_books_path
                 %li
-                  = link_to 'Unterseite', '#'
-                %li
-                  = link_to 'Kontakt', '#'
+                  = link_to 'Impressum', imprint_path
           .col-sm-4
             %h4 Kontakt
             %address
-              %p Jägerstraße
-              %p 10179 Berlin
-              %p Telefon: +49 30 9231341
-              %p E-Mail: hello@book-and-read.de
+              %p Machonstraße 24
+              %p 12105 Berlin
+              %p E-Mail: info@bookandread.com

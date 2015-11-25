@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: "home#index"
+  get "/imprint", to: "home#imprint", as: "imprint"
 
   resources :rentals
   resources :searched_books, only: :index
