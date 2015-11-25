@@ -15,14 +15,10 @@
           %button.btn.btn-primary
             = fa_icon 'user'
             Zu den Besitzern
-        - if current_user
+        - unless current_user.books.include? book
           = link_to user_books_path(current_user, id: book),
             method: :post,
             remote: true do
             %button.btn.btn-success
               = fa_icon('plus')
-              Zu meinen Büchern hinzufügen
-        - else
-          %button.btn.btn-success.disabled
-            = fa_icon('plus')
-            Add to my Books
+              Habe ich auch

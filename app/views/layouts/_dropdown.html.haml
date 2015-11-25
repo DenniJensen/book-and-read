@@ -6,9 +6,6 @@
     %span.caret
   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
     %li
-      = link_to 'Bücher hinzufügen', new_book_path,
-        class: 'navbar-link'
-    %li
       = link_to 'Meine Bücher', user_books_path(current_user),
         class: 'navbar-link'
     %li

@@ -11,8 +11,7 @@ class Book < ActiveRecord::Base
   validates :isbn, uniqueness: { scope: :isbn_13 }, length: { in: 10..13 }
 
   def self.search(search)
-    return all unless search
-    self.available.where("title like ?", "%#{search}%")
+    where("title like ?", "%#{search}%")
   end
 
   def self.available

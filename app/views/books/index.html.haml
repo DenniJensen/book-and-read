@@ -1,6 +1,24 @@
 .page-header.container
   %h1
     Bücherliste
+    %small
+      - if @searched_for
+        Gesucht nach:
+        %strong
+          = @searched_for
+  .row
+    .col-md-8
+      =form_tag(searched_books_path, class: 'input-group') do
+        = text_field_tag :search, params[:search],
+          class: 'form-control',
+          placeholder: 'Nicht gefunden? Suche weiter...'
+        %span.input-group-btn
+          =submit_tag('Suchen',
+            type: 'submit' ,
+            value: 'Search',
+            class: 'btn btn-primary')
+      = link_to 'Alle Ausleihbaren Bücher', available_books_path,
+        class: 'available-book-link'
 
 - @books.each do |book|
   .row
