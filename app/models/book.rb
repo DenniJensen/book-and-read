@@ -9,4 +9,17 @@ class Book < ActiveRecord::Base
 
   validates :title, :isbn, presence: true
   validates :isbn, uniqueness: { scope: :isbn_13 }, length: { in: 10..13 }
+
+  def self.search(search)
+    return all unless search
+    self.available.where("title like ?", "%#{search}%")
+  end
+
+  def self.available
+    joins(:book_ownerships).uniq
+  end
+
+  def available?
+    owners.count > 0
+  end
 end

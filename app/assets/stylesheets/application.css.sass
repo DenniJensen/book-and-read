@@ -7,12 +7,39 @@
 @import font-awesome
 @import url(https://fonts.googleapis.com/css?family=Open+Sans)
 @import variables
+@import jquery-ui
 
 body
   font-family: Open Sans
 
+.alert-success
+  background-image: none
+
+.btn-danger, .btn-success, .btn-warning
+  background-image: none
+  box-shadow: 4px 4px rgba(0,0,0,0.1)
+  margin-right: $gap-xs
+
+.btn-danger
+
+.btn-success
+
+.seperated-sm
+  margin-top: $gap-sm
+
+.seperated
+  margin-top: $gap
+
 .container
   max-width: 990px
+
+.seperator:after
+  content: "|"
+  color: darken($navbar-default-color, 8%)
+
+.input-group-btn input
+  background-image: none
+  border-radius: 5px
 
 .navbar-default
   background: $blue-default
@@ -27,9 +54,36 @@ body
     display: inline-block
     height: $logo-height
     width: $logo-width
+    position: absolute
+
+    &:hover
+      text-decoration: none
+
+    @media(max-width:767px)
+      left: $gap+$gap-sm/2
 
   .navbar-link
-    color: darken($navbar-default-color, 20%)
+    color: darken($navbar-default-color, 8%)
+
+    &:hover
+      color: darken($navbar-default-color, 15%)
+
+  .navbar-collapse
+    position: relative
+
+  .dropdown
+    position: absolute
+    right: 0
+    padding-top: ($navbar-height - $font-size-base) / 3
+    cursor: pointer
+    color: darken($navbar-default-color, 8%)
+
+    &:hover
+      color: darken($navbar-default-color, 14%)
+
+    .dropdown-menu li a
+      color: $text-color
+
 
 
 footer
@@ -63,3 +117,33 @@ footer
     border-bottom: 1px dotted darken($footer-color, 30%)
     padding: $gap/2 0
     margin: 0
+
+.dropdown-places
+  padding: $gap-xs
+  border-radius: 4px
+  cursor: pointer
+
+.submit-button input
+  display: inline-block
+  height: auto
+  margin-top: $gap-sm
+  border-radius: 5px
+  box-shadow: 4px 4px rgba(0,0,0,0.1)
+  padding: $padding-large-vertical*0.7 $padding-large-horizontal*0.7
+  font-size: $button-font-size*0.9
+  background: $blue-default
+  color: $btn-default-color
+  border: $btn-primary-border
+
+  &:hover
+    background: darken($blue-default, 10%)
+
+  &.btn-primary, &.btn-success
+    background-image: none
+    box-shadow: 4px 4px rgba(0,0,0,0.1)
+
+.red-child input
+  background: $brand-danger
+
+  &:hover
+    background: darken($brand-danger, 10%)

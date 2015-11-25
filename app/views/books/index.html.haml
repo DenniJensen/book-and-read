@@ -1,12 +1,6 @@
 .page-header.container
   %h1
-    Search results
-    %small TEXT FROM SEARCHFIELD
-
--if @searched_for
-  .warning
-    You searched for:
-    =@searched_for
+    Bücherliste
 
 - @books.each do |book|
   .row

@@ -1,23 +1,21 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
-  # GET /rentals
-  # GET /rentals.json
   def index
     @rentals = Rental.where(owner_id: params[:user_id])
   end
 
-  # GET /rentals/1
-  # GET /rentals/1.json
   def show
   end
 
-  # GET /rentals/1/edit
   def edit
   end
 
-  # POST /rentals
-  # POST /rentals.json
+  def new
+    @rental = Rental.from(params[:borrow_request_id])
+  end
+
   def create
     @rental = Rental.new(rental_params)
 
@@ -32,8 +30,6 @@ class RentalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rentals/1
-  # PATCH/PUT /rentals/1.json
   def update
     respond_to do |format|
       if @rental.update(rental_params)
@@ -46,8 +42,6 @@ class RentalsController < ApplicationController
     end
   end
 
-  # DELETE /rentals/1
-  # DELETE /rentals/1.json
   def destroy
     @rental.destroy
     respond_to do |format|
@@ -57,13 +51,13 @@ class RentalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rental
-      @rental = Rental.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rental
+    @rental = Rental.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def rental_params
-      params[:rental]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def rental_params
+    params[:rental]
+  end
 end

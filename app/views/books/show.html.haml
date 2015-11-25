@@ -32,11 +32,9 @@
       People owning this book:
   .col-md-2.col-sm-3.col-xs-4
     = link_to book_owners_path(@book) do
-      .btn.btn-primary.full-width
+      %button.btn.btn-primary.full-width
         Show all
 
 .margin-top-10
-  - @book.owners.first(2).each do |owner|
+  - @book.owners.each do |owner|
     = render 'users/box', user: owner
-
-=link_to "To all books", books_path

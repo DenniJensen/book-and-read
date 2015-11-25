@@ -1,13 +1,27 @@
-app/view/borrow_requests/index.html.haml
 %h2 Eigene Ausleihwünsche
-%ol.borrow-requests
-  - @borrow_requests.each do |borrow_request|
-    %li
-      = borrow_request.book.title
-%h2 Anfragen von anderen
-%ol.borrow-requests
-  - @lent_request.each do |lent_request|
-    %li
-      = lent_request.book.title
-      = link_to 'Details', user_borrow_request_path(current_user, lent_request)
+%table.table.section-seperated
+  %thead
+    %tr
+      %th
+        Buchtitel
+  %tbody
+    - @borrow_requests.each do |borrow_request|
+      %tr
+        %td
+          = borrow_request.book.title
 
+%h2 Anfragen von anderen
+%table.table.section-seperated
+  %thead
+    %tr
+      %th
+        Buchtitel
+      %th
+        Details
+  %tbody
+    - @lent_request.each do |lent_request|
+      %tr
+        %td
+          = lent_request.book.title
+        %td
+          = link_to 'Details', user_borrow_request_path(current_user, lent_request)

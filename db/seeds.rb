@@ -5,6 +5,12 @@ Author.create(name: "Martin Fowler")
 Author.create(name: "Russ Olsen")
 Author.create(name: "Rober C. Martin")
 
+3.times do |n|
+Place.create(longitude: 13.5,
+            latitude: 13.4,
+            name: "Place #{n}")
+end
+
 json.each do |book|
   b = Book.create(title: book['title'],
               subtitle: book['subtitle'],
@@ -22,10 +28,10 @@ end
 
 
 5.times do |number|
-  User.create email:  "Dummy_user#{number}@test.com",
+  User.create email:  "User_#{number}@test.com",
               password: 'secredfdaff',
-              first_name: "Dummy_#{number}",
-              last_name: 'Dummkopf'
+              first_name: "User_#{number}",
+              last_name: "Lastname#{number}"
 end
 
 User.first(2).each do |user|

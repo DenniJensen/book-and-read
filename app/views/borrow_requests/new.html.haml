@@ -1,0 +1,19 @@
+%section.section-seperated
+  = bootstrap_form_for(@borrow_request,
+    url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
+    .field.seperated-sm
+      = f.text_field :borrow_start, class: 'datepicker',
+        label: 'Start des Verleihs', required: true
+    .field.seperated-sm
+      = f.text_field :borrow_end, class: 'datepicker',
+        label: 'Verleih bis', required: true
+    .dropdown.seperated-sm
+      %select.dropdown-places{:name => "places"}
+        %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+          - @places.each do |place|
+            %li
+              %option{:value => "place1"}
+                = link_to "#{place.name}", new_book_path, class: 'linked-none'
+
+    .submit-button.actions.seperated-sm
+      = f.submit "Anfragen"

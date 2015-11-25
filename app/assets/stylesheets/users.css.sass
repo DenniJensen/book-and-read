@@ -1,15 +1,62 @@
-.vertical-center
-  display: flex
-  align-items: center
+// users.css.sass
 
-.max-width-80
+@import variables
+
+// general
+.emphatized
+  color: $blue-default
+
+// user listing
+.user-box
+  position: relative
+  background: $list-box-bg
+  border-radius: 4px
+  border: 1px solid darken($list-box-bg, 10%)
+  margin: $gap auto
+  padding: $gap-sm
+
   img
-    max-width: 80px
+    border-radius: 100%
+    border: 1px solid darken($list-box-bg, 15%)
 
-.red
-  background: red
+  .button-group
+    text-align: right
+    position: static
 
-.horizontal-center
-  margin: 0 auto
-  width: 50%
+    button
+      padding: $padding-large-vertical*0.8 $padding-large-horizontal*0.8
+      font-size: $button-font-size*0.8
+      display: inline-block
+      height: auto
+      margin: $gap-sm 0 0 0
+      border-radius: 5px
+      box-shadow: 4px 4px rgba(0,0,0,0.1)
+      position: absolute
+      bottom: $gap
+      right: $gap-sm
 
+      &.btn-primary
+        background-image: none
+
+
+  .user-name
+    font-size: $font-size-base*1.5
+
+// user show
+
+.section-seperated
+  margin-top: $gap-large
+
+.profile
+  border: 1px solid darken($list-box-bg, 10%)
+  background: $list-box-bg
+  border-radius: 4px
+  margin-top: $gap
+  padding: $gap-sm
+
+  .profile-image
+    width: 70%
+    height: 70%
+    border: 1px solid darken($list-box-bg, 15%)
+
+  .profile-info

@@ -1,0 +1,31 @@
+.page-header.container
+  %h1
+    Füge ein neues Buch hinzu
+
+- @books.each do |book|
+  .row
+    .col-md-12
+      =link_to book_path(book) do
+        .row.book-box
+          .col-sm-2
+            .thumbnail
+              =image_tag book.image_link
+          .col-sm-10
+            .book-info
+              %h3.title
+                =book.title
+              %span
+                Page Count:
+                =book.pages
+              .button-group
+                - if current_user
+                  = link_to user_books_path(current_user, id: book),
+                    method: :post,
+                    remote: true do
+                    %button.btn.btn-success
+                      = fa_icon('plus')
+                      Zu meinen Büchern hinzufügen
+                - else
+                  %button.btn.btn-success.disabled
+                    = fa_icon('plus')
+                    Add to my Books

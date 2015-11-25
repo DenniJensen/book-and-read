@@ -4,19 +4,19 @@ Rails.application.routes.draw do
   get "/imprint", to: "home#imprint", as: "imprint"
 
   resources :rentals
-  resources :searched_books, only: :index
+  resources :searched_books, only: :create
 
-  resources :available_books, only: :index
+  resources :available_books, only: [:index, :show]
 
   resources :books, only: [:show, :new] do
     resources :owners, only: [:index, :show]
   end
 
   resources :users, only: [:index, :show] do
-    resources :borrow_requests, only: [:index, :show]
+    resources :borrow_requests, only: [:index, :show, :destroy]
 
     resources :books do
-      resources :borrow_requests, only: :create
+      resources :borrow_requests, only: [:new, :create]
     end
   end
 end

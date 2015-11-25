@@ -1,0 +1,23 @@
+.dropdown
+  %div#dropdown-login.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+    Logged in as
+    %strong
+      = current_user.email
+    %span.caret
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+    %li
+      = link_to 'Bücher hinzufügen', new_book_path,
+        class: 'navbar-link'
+    %li
+      = link_to 'Meine Bücher', user_books_path(current_user),
+        class: 'navbar-link'
+    %li
+      = link_to 'Meine Anfragen', user_borrow_requests_path(current_user),
+        class: 'navbar-link'
+    %li
+      = link_to 'Edit profile', edit_user_registration_path,
+        :class => 'navbar-link'
+    %li
+      = link_to "Logout", destroy_user_session_path,
+        method: :delete,
+        :class => 'navbar-link'

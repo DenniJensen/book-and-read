@@ -1,22 +1,25 @@
-app/views/borrow_requests/show.html.haml
+.seperated.request-parameter
+  %p
+    Anfrage von:
+    = @borrow_request.requester.email
+  %p
+    Anfrage an:
+    = @borrow_request.owner.email
+  %p
+    Start der Ausleihe:
+    = @borrow_request.borrow_start
+  %p
+    Ende der Ausleihe:
+    = @borrow_request.borrow_end
 
-Anfrage von:
-= @borrow_request.requester.email
-%br
-Anfrage an:
-= @borrow_request.owner.email
-%br
-Start der Ausleihe:
-= @borrow_request.borrow_start
-%br
-Ende der Ausleihe:
-= @borrow_request.borrow_end
-%br
+.seperated
+  = link_to 'Akzeptieren', new_rental_path(borrow_request_id: @borrow_request),
+    class: 'btn btn-success'
 
-= link_to 'Akzeptieren', new_rental_path(current_user),
-  class: 'btn btn-success'
+  = link_to 'Bearbeiten', '/',
+    class: 'btn btn-warning'
 
-= link_to 'Löschen', user_borrow_requests_path(current_user),
-  class: "btn btn-danger"
-
-= link_to 'Zurück zu meinen Anfragen', user_borrow_requests_path(current_user)
+  = link_to 'Löschen', user_borrow_request_path(current_user, @borrow_request),
+    method: 'delete',
+    data: { confirm: 'Willst du die Anfrage wirkliche löschen?' },
+    class: 'btn btn-danger'
