@@ -3,17 +3,15 @@
 %table.table
   %thead
     %tr
-      %th Verleih ab
-      %th Verleih bis
+      %th Buchtitle
       %th Verliehen an
+      %th Seit
+      %th Bis
 
   %tbody
     - @rentals.each do |rental|
       %tr
+        %td= rental.book.title
+        %td= link_to rental.borrower.email, users_path(rental.borrower)
         %td= rental.start
         %td= rental.end
-        %td= rental.borrower.email
-        -# %td= link_to 'Show', rental
-        -# %td= link_to 'Destroy', rental, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br

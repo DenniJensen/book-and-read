@@ -5,15 +5,18 @@
       %th
         Buchtitel
       %th
-        Details
+
   %tbody
     - @borrow_requests.each do |borrow_request|
       %tr
         %td
           = borrow_request.book.title
         %td
-          = link_to 'Details', user_borrow_request_path(current_user,
-            borrow_request)
+          = link_to user_borrow_request_path(current_user, borrow_request),
+            method: 'delete',
+            data: { confirm: 'Willst du die Anfrage wirkliche löschen?' },
+            class: 'btn btn-danger' do
+            = fa_icon "trash"
 
 %h2 Anfragen von anderen
 %table.table.section-seperated

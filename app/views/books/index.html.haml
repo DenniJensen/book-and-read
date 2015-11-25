@@ -11,7 +11,7 @@
       =form_tag(searched_books_path, class: 'input-group') do
         = text_field_tag :search, params[:search],
           class: 'form-control',
-          placeholder: 'Nicht gefunden? Suche weiter...'
+          placeholder: 'Buchsuche...'
         %span.input-group-btn
           =submit_tag('Suchen',
             type: 'submit' ,
@@ -19,8 +19,15 @@
             class: 'btn btn-primary')
       = link_to 'Alle Ausleihbaren Bücher', available_books_path,
         class: 'available-book-link'
-
-- @books.each do |book|
-  .row
-    .col-md-12
-      = render 'books/box', book: book
+- if @books.empty?
+  - if @searched_for
+    Leider haben wir kein Buch im System zu:
+    %strong
+      = @searched_for
+  - else
+    Bitte gebe ein Buch an.
+- else
+  - @books.each do |book|
+    .row
+      .col-md-12
+        = render 'books/box', book: book
