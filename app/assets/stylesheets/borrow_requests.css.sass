@@ -2,13 +2,25 @@
 
 @import application
 
-.form-group .btn-primary
-  display: inline-block
-  height: auto
-  margin-top: $gap-sm
-  border-radius: 5px
-  border: 1px solid $btn-primary-border
-  box-shadow: 4px 4px rgba(0,0,0,0.1)
-  background-image: none
-  padding: $padding-large-vertical*0.7 $padding-large-horizontal*0.7
-  font-size: $button-font-size*0.9
+.form-group
+  .btn
+    display: inline-block
+    height: auto
+    border-radius: 5px
+    box-shadow: 4px 4px rgba(0,0,0,0.1)
+    padding: $padding-large-vertical*0.7 $padding-large-horizontal*0.7
+    font-size: $button-font-size*0.9
+
+    &.btn-primary
+      border: 1px solid $btn-primary-border
+      background-image: none
+
+    &.btn-default
+      background-image: none
+
+      a:hover
+        text-decoration: none
+        color: #000
+
+  input.form-control
+    width: 40%
