@@ -18,17 +18,17 @@ class BorrowRequestsController < ApplicationController
 
   def new
     @borrow_request = BorrowRequest.new
-    @places = Place.all
   end
 
   def create
-    created = BorrowRequest.create(user_borrow_request.merge(borrow_request_params))
-    if created
+    create_params = user_borrow_request.merge(borrow_request_params)
+    @borrow_request = BorrowRequest.new(create_params)
+    if @borrow_request.save
       flash[:notice] = "Anfrage gesendet"
       render 'home/index'
     else
-      flash[:alert] = "Anfrage konnte nicht übergeben werden"
-      render nothing: true
+      flash[:alert] = "Bereits Anfrage zum Buch vorhanden!"
+      redirect_to url_for(controller: :home, action: :index)
     end
   end
 

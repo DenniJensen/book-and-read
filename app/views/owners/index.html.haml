@@ -1,0 +1,6 @@
+.row
+  .col-md-8
+    - @users.each do |user|
+      = render 'owners/box', user: user
+  .col-md-4
+    .google-maps
