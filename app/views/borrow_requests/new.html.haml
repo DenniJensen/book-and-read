@@ -2,13 +2,21 @@
   = bootstrap_form_for(@borrow_request,
     url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
     .field.seperated-sm
-      = f.text_field :borrow_start, class: 'datepicker',
-        label: 'Startdatum: Wann willst du das Buch erhalten?', required: true
+      = f.datetime_select :borrow_start,
+        label: 'Ab wann?', required: true,
+        order: [:hour, :minute, :day, :month, :year],
+        default: { hour: 12, minute: 00 }
+    %br
     .field.seperated-sm
-      = f.text_field :borrow_end, class: 'datepicker',
-        label: 'Enddatum: Wie lange willst du es ausleihen?', required: true
+      = f.datetime_select :borrow_end,
+        label: 'Bis wann?', required: true,
+        order: [:hour, :minute, :day, :month, :year],
+        default: 7.days.from_now.middle_of_day
+    %br
     .field.seperated-sm
-      = f.collection_radio_buttons :place_id, @places, :id, :name,
-        label: 'Ort: Wo wird es übergeben?', required: true
+      = f.collection_radio_buttons :place_id, Place.all, :id, :name,
+        label: 'Wo willst du das Buch erhalten?', required: true
+
+    %br
     .submit-button.actions.seperated-sm
       = f.submit "Anfragen"
