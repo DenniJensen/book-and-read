@@ -3,6 +3,10 @@ require 'rails_helper'
 describe BooksController do
   let(:user_with_books) { create :user, :with_books }
 
+  before do
+    allow(controller).to receive(:authenticate_user!).and_return(true)
+  end
+
   describe 'GET books/new' do
     it 'returns all books in the database' do
       books = [create(:book)]
