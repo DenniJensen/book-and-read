@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe BooksController do
+describe BooksController, type: :controller do
   let(:user_with_books) { create :user, :with_books }
 
   before do
@@ -8,13 +8,12 @@ describe BooksController do
   end
 
   describe 'GET books/new' do
-    it 'returns all books in the database' do
+    it 'returns all books from database' do
       books = [create(:book)]
       books << create(:book)
       books << create(:book)
-      get :new
-      expect(response.status).to eq 200
-      expect(assigns(:books)).to eq books
+      get :new, user_id: user_with_books.id
+      expect(assigns(:books).count).to eq(user_with_books.books.count + 3)
     end
   end
 

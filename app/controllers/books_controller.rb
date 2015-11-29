@@ -16,8 +16,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Buchbesitzer", :user_book_path
-    add_breadcrumb "Ausleihanfrage", :new_user_book_borrow_request_path
+    add_breadcrumb "Buch hinzufügen", :new_user_book_path
     @books = Book.all
   end
 

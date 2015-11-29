@@ -12,7 +12,9 @@ describe BorrowRequestsController, type: :controller do
   let(:borrow_request) do
     BorrowRequest.create(requester_id: borrower.id,
                          owner_id: owner.id,
-                         book_id: book_to_borrow.id)
+                         book_id: book_to_borrow.id,
+                         borrow_start: Date.new,
+                         borrow_end: Date.new)
   end
 
   describe 'GET /users/:user_id/books/:id' do

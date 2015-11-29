@@ -14,7 +14,10 @@ describe User, type: :model do
     before(:each) do
       BorrowRequest.create(requester_id: user.id,
                            owner_id: user_with_books.id,
-                           book_id: user_with_books.books.first.id)
+                           book_id: user_with_books.books.first.id,
+                           borrow_start: Date.new,
+                           borrow_end: Date.new
+                          )
     end
 
     describe '.borrow_requests' do
