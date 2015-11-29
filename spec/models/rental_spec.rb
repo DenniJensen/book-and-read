@@ -7,7 +7,4 @@ describe Rental, type: :model do
     Rental.from(borrow_request.id)
     expect(Rental.all.count).to eq 1
   end
-
-  it 'has owner set' do
-  end
 end

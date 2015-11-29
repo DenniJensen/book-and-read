@@ -6,12 +6,12 @@ class Rental < ActiveRecord::Base
 
   def self.from(borrow_request_id)
     borrow_request = BorrowRequest.find(borrow_request_id)
-    new(
+    create(
       book: borrow_request.book,
       owner: borrow_request.owner,
       borrower: borrow_request.requester,
-      start: borrow_request.borrow_start || DateTime.now,
-      end: borrow_request.borrow_end || DateTime.now + 5
+      start: borrow_request.borrow_start,
+      end: borrow_request.borrow_end
     )
   end
 end
