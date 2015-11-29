@@ -5,6 +5,7 @@ class BorrowRequest < ActiveRecord::Base
   belongs_to :owner, class_name: User
   belongs_to :requester, class_name: User
 
+  validates_presence_of :owner, :book, :requester, :borrow_start, :borrow_end
   validates :owner, uniqueness: { scope: [:book, :requester] }
 
   private

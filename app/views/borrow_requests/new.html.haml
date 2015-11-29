@@ -1,6 +1,11 @@
 %section.section-seperated
-  = bootstrap_form_for(@borrow_request,
-    url: user_book_borrow_requests_path(requester_id: current_user.id)) do |f|
+  = bootstrap_form_for(@borrow_request) do |f|
+    .field.seperated-sm
+      = f.hidden_field :book_id, required: true
+      = f.hidden_field :owner_id, required: true
+      = f.hidden_field :requester_id,
+        value: current_user.id,
+        label: 'Von wem', required: true
     .field.seperated-sm
       = f.datetime_select :borrow_start,
         label: 'Ab wann?', required: true,

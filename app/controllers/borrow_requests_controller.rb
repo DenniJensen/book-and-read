@@ -17,17 +17,16 @@ class BorrowRequestsController < ApplicationController
   end
 
   def new
-    @borrow_request = BorrowRequest.new
+    @borrow_request = BorrowRequest.new(user_borrow_request)
   end
 
   def create
-    create_params = user_borrow_request.merge(borrow_request_params)
-    @borrow_request = BorrowRequest.new(create_params)
+    @borrow_request = BorrowRequest.new(borrow_request_params)
     if @borrow_request.save
       flash[:notice] = "Anfrage gesendet"
-      render 'home/index'
+      redirect_to url_for(controller: :home, action: :index)
     else
-      flash[:alert] = "Bereits Anfrage zum Buch vorhanden!"
+      flash[:alert] = 'Anfrage fehlgeschlagen'
       redirect_to url_for(controller: :home, action: :index)
     end
   end
@@ -40,7 +39,9 @@ class BorrowRequestsController < ApplicationController
   private
 
   def borrow_request_params
-    params[:borrow_request]
+    params.require(:borrow_request).permit(
+      :requester_id, :book_id, :owner_id, :borrow_start, :borrow_end
+    )
   end
 
   def user_borrow_request
