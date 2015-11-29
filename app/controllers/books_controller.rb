@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :assign_book, only: [:show, :create, :destroy]
 
   add_breadcrumb "Startseite", :root_path
-  add_breadcrumb "Bücher", :available_books_path
+  add_breadcrumb "Verfügbare Bücher", :available_books_path
 
   before_action :authenticate_user!
 
@@ -12,9 +12,12 @@ class BooksController < ApplicationController
   end
 
   def show
+    add_breadcrumb "#{@book.title}", :book_path
   end
 
   def new
+    add_breadcrumb "Buchbesitzer", :user_book_path
+    add_breadcrumb "Ausleihanfrage", :new_user_book_borrow_request_path
     @books = Book.all
   end
 

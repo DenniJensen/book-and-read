@@ -8,7 +8,7 @@ class AvailableBooksController < ApplicationController
   end
 
   def show
-    add_breadcrumb "Verfügbare Bücher", :available_book_path
+    add_breadcrumb "Buch", :available_book_path
     @book = Book.find(params[:id])
     render 'books/show'
   end

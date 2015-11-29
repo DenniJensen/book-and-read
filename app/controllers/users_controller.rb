@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  add_breadcrumb "Startseite", :root_path
-  add_breadcrumb "Angemeldete Nutzer", :users_path
-
   before_action :authenticate_user!
+
+  add_breadcrumb "Startseite", :root_path
 
   def index
     @users = User.all

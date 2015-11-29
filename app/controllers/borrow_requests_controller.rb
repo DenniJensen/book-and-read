@@ -1,6 +1,6 @@
 class BorrowRequestsController < ApplicationController
   add_breadcrumb "Startseite", :root_path
-  add_breadcrumb "Anfragen", :user_borrow_requests_path
+  before_action :set_breadcrumb, except: :new
 
   before_action :authenticate_user!
 
@@ -10,13 +10,18 @@ class BorrowRequestsController < ApplicationController
   end
 
   def show
+    add_breadcrumb "Anfrage", :user_borrow_request_path
     @borrow_request = BorrowRequest.find(params[:id])
   end
 
   def edit
+    add_breadcrumb "Anfrage editieren", :user_borrow_request_path
   end
 
   def new
+    add_breadcrumb "Bücher", :user_books_path
+    add_breadcrumb "Buchbesitzer", :user_book_path
+    add_breadcrumb "Ausleihanfrage", :new_user_book_borrow_request_path
     @borrow_request = BorrowRequest.new(user_borrow_request)
   end
 
@@ -50,5 +55,9 @@ class BorrowRequestsController < ApplicationController
       book_id: params[:book_id],
       owner_id: params[:user_id]
     }
+  end
+
+  def set_breadcrumb
+    add_breadcrumb "Anfragen", :user_borrow_requests_path
   end
 end

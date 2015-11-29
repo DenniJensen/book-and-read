@@ -2,36 +2,27 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  add_breadcrumb "Startseite", :root_path
+  add_breadcrumb "Verleihe", :user_rentals_path
+
   def index
     @rentals = Rental.where(owner_id: params[:user_id])
   end
 
   def show
-  end
-
-  def edit
+    add_breadcrumb "Aktuell verliehen", :user_rental_path
   end
 
   def create
     @rental = Rental.from(params[:borrow_request_id])
-      if @rental.save
-        BorrowRequest.delete(params[:borrow_request_id])
-        redirect_to controller: :borrow_requests, action: :index, user_id: current_user.id,
-          notice: 'Rental was successfully created.'
-      else
-         render :show
-      end
-  end
-
-  def update
-    respond_to do |format|
-      if @rental.update(rental_params)
-        format.html { redirect_to @rental, notice: 'Rental was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rental }
-      else
-        format.html { render :edit }
-        format.json { render json: @rental.errors, status: :unprocessable_entity }
-      end
+    if @rental.save
+      BorrowRequest.delete(params[:borrow_request_id])
+      redirect_to controller: :borrow_requests,
+        action: :index,
+        user_id: current_user.id,
+        notice: 'Rental was successfully created.'
+    else
+       render :show
     end
   end
 
@@ -44,13 +35,12 @@ class RentalsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_rental
     @rental = Rental.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def rental_params
-    params.require(:rental).permit(:start, :end, :borrower, :owner, :book)
+  def user_params
+    params.permit(:user_id)
   end
 end
