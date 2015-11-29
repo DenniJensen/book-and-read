@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :rentals, only: :create
 
-  resources :searched_books, only: :create
+  resources :searched_books, only: [:index, :create]
 
   resources :available_books, only: [:index, :show]
 
