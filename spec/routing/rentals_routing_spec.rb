@@ -1,37 +1,34 @@
 require "rails_helper"
 
-RSpec.describe RentalsController, type: :routing do
+describe RentalsController, type: :routing do
   describe "routing" do
     it "routes to #index" do
-      expect(:get => "/rentals").to route_to("rentals#index")
-    end
-
-    it "routes to #new" do
-      expect(:get => "/rentals/new").to route_to("rentals#new")
+      expect(get: "/users/1/rentals").to route_to(
+        controller: 'rentals',
+        action: 'index',
+        user_id: '1')
     end
 
     it "routes to #show" do
-      expect(:get => "/rentals/1").to route_to("rentals#show", :id => "1")
-    end
-
-    it "routes to #edit" do
-      expect(:get => "/rentals/1/edit").to route_to("rentals#edit", :id => "1")
-    end
-
-    it "routes to #create" do
-      expect(:post => "/rentals").to route_to("rentals#create")
-    end
-
-    it "routes to #update via PUT" do
-      expect(:put => "/rentals/1").to route_to("rentals#update", :id => "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(:patch => "/rentals/1").to route_to("rentals#update", :id => "1")
+      expect(get: "/users/1/rentals/1").to route_to(
+        controller: 'rentals',
+        action: 'show',
+        user_id: '1',
+        id: '1')
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/rentals/1").to route_to("rentals#destroy", :id => "1")
+      expect(delete: "users/1/rentals/1").to route_to(
+        controller: 'rentals',
+        action: 'destroy',
+        user_id: '1',
+        id: '1')
+    end
+
+    it "routes to #create" do
+      expect(post: "/rentals").to route_to(
+        controller: 'rentals',
+        action: 'create')
     end
   end
 end
