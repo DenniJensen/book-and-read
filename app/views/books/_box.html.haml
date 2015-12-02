@@ -11,10 +11,11 @@
           Anzahl der Besitzer:
           =book.owners.count
       .button-group
-        = link_to book_owners_path(book) do
-          %button.btn.btn-primary
-            = fa_icon 'user'
-            Zu den Besitzern
+        - if book.available?
+          = link_to book_owners_path(book) do
+            %button.btn.btn-primary
+              = fa_icon 'user'
+              Zu den Besitzern
         - if current_user
           - unless current_user.books.include? book
             = link_to user_books_path(current_user, id: book),
