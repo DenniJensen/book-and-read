@@ -6,16 +6,19 @@
       = f.hidden_field :requester_id,
         value: current_user.id,
         label: 'Von wem', required: true
+
     .field.seperated-sm
       = f.datetime_select :borrow_start,
         label: 'Ab wann?', required: true,
         order: [:hour, :minute, :day, :month, :year],
+        discard_minute: true,
         default: { hour: 12, minute: 00 }
     %br
     .field.seperated-sm
       = f.datetime_select :borrow_end,
         label: 'Bis wann?', required: true,
         order: [:hour, :minute, :day, :month, :year],
+        discard_minute: true,
         default: 7.days.from_now.middle_of_day
     %br
     .field.seperated-sm
