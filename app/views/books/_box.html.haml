@@ -8,17 +8,18 @@
         %h3.title
           =book.title
         %span
-          Page Count:
-          =book.pages
+          Anzahl der Besitzer:
+          =book.owners.count
       .button-group
         = link_to book_owners_path(book) do
           %button.btn.btn-primary
             = fa_icon 'user'
             Zu den Besitzern
-        - unless current_user.books.include? book
-          = link_to user_books_path(current_user, id: book),
-            method: :post,
-            remote: true do
-            %button.btn.btn-success
-              = fa_icon('plus')
-              Habe ich auch
+        - if current_user
+          - unless current_user.books.include? book
+            = link_to user_books_path(current_user, id: book),
+              method: :post,
+              remote: true do
+              %button.btn.btn-success
+                = fa_icon('plus')
+                In eigene Sammlung aufnehmen
