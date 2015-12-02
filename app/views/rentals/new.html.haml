@@ -10,7 +10,7 @@
   = @rental.end
 %p
   An:
-  = @rental.borrower.email
+  = @rental.borrower.name
 
 =form_for(@rental) do |f|
   = f.text_field :start, hidden: true

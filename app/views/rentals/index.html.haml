@@ -12,6 +12,6 @@
     - @rentals.each do |rental|
       %tr
         %td= rental.book.title
-        %td= link_to rental.borrower.email, users_path(rental.borrower)
+        %td= link_to rental.borrower.name, users_path(rental.borrower)
         %td= rental.start
         %td= rental.end
