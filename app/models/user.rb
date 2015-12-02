@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:twitter, :github,
                                  :facebook, :google_oauth2]
 
+  has_one :profile
   has_many :book_ownerships
   has_many :books, through: :book_ownerships
 

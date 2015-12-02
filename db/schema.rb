@@ -11,20 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123202731) do
+ActiveRecord::Schema.define(version: 20151202085129) do
 
   create_table "authors", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
-
-  create_table "authors_books", id: false, force: :cascade do |t|
-    t.integer "book_id",   null: false
-    t.integer "author_id", null: false
-  end
-
-  add_index "authors_books", ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
 
   create_table "book_ownerships", force: :cascade do |t|
     t.integer  "user_id"
@@ -37,17 +28,15 @@ ActiveRecord::Schema.define(version: 20151123202731) do
   add_index "book_ownerships", ["user_id"], name: "index_book_ownerships_on_user_id"
 
   create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "subtitle"
-    t.date     "published_at"
-    t.string   "description"
-    t.string   "language"
-    t.string   "image_link"
-    t.integer  "pages"
-    t.string   "isbn"
-    t.string   "isbn_13"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.text    "title"
+    t.text    "subtitle"
+    t.string  "published_at"
+    t.text    "description"
+    t.string  "language"
+    t.string  "image_link"
+    t.integer "pages"
+    t.string  "isbn"
+    t.string  "isbn_13"
   end
 
   create_table "books_authors", force: :cascade do |t|
@@ -76,6 +65,16 @@ ActiveRecord::Schema.define(version: 20151123202731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "rentals", force: :cascade do |t|
     t.date     "start"
