@@ -1,8 +1,8 @@
 .dropdown
   %div#dropdown-login.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-    Logged in as
+    Hallo
     %strong
-      = current_user.email
+      = current_user.first_name
     %span.caret
   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
     %li
