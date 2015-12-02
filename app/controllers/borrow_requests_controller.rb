@@ -19,9 +19,6 @@ class BorrowRequestsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Bücher", :user_books_path
-    add_breadcrumb "Buchbesitzer", :user_book_path
-    add_breadcrumb "Ausleihanfrage", :new_user_book_borrow_request_path
     @borrow_request = BorrowRequest.new(user_borrow_request)
   end
 
